@@ -1,0 +1,519 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+.dashboard-main-boxs {
+  width: 1288px;
+  margin: 32px auto;
+  border-radius: 48px;
+  padding: 24px 24px 0 24px;
+  box-shadow: 0 4px 24px rgba(24, 59, 90, 0.07);
+  display: flex;
+  flex-direction: column;
+  background: rgb(239, 239, 239);
+}
+
+.task-div {
+  width: 1288px;
+  min-width: 1288px;
+  max-width: 1288px;
+  margin: 32px auto;
+  background-color: rgb(239, 239, 239);
+  border-radius: 48px;
+  padding: 24px 20px 0 20px;
+  box-shadow: 0 4px 24px rgba(24, 59, 90, 0.07);
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+}
+
+.direction-gr {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.flexdiv-group {
+  display: flex;
+  gap: 10px;
+  padding-left: 0;
+  padding-top: 0;
+}
+
+.flexcard {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 24px;
+  width: 287px;
+  height: 155px;
+  border-radius: 8px;
+  box-shadow: 0px 5.62px 9.13px -2.11px rgba(0, 0, 0, 0.07);
+  background-color: white;
+}
+
+.cedvel {
+  flex: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.task-table-container {
+  width: 880px;
+  height: 640.43px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(24, 59, 90, 0.07);
+  padding: 0;
+  margin: 0;
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+.rightrate-group {
+  width: 335px;
+  height: 609px;
+  left: 786.85px;
+  border-radius: 8px;
+}
+
+.progress-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.0666666667);
+  padding: 24px;
+  width: 335px;
+  height: 609px;
+  font-family: "Inter", sans-serif;
+}
+
+.coulmn-writes {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+}
+.coulmn-writes .num {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 64px;
+  line-height: 120%;
+  letter-spacing: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.coulmn-writes h5 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16.32px;
+  letter-spacing: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.gipro {
+  font-size: 40px;
+  color: rgb(16, 185, 129);
+}
+
+.flex {
+  display: flex;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+}
+.progress-header .progress-period {
+  border: none;
+  background: #f5f5f5;
+  border-radius: 8px;
+  padding: 4px 12px;
+  font-size: 0.95rem;
+  color: #444;
+  cursor: pointer;
+}
+
+.progress-gauge {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 24px;
+}
+.progress-gauge svg {
+  width: 269.6999511719px;
+  height: 134.8815002441px;
+  top: 68.18px;
+  left: 26.65px;
+}
+.progress-gauge .gauge-text {
+  font-size: 2.5rem;
+  font-weight: 700;
+  fill: #222;
+  dominant-baseline: middle;
+}
+
+.calendar-container {
+  background: #fff;
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 16px;
+}
+.calendar-container .calendar-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.calendar-container .calendar-header button {
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 1.3rem;
+  color: #222;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.0666666667);
+  transition: background 0.2s;
+}
+.calendar-container .calendar-header button:hover {
+  background: #f3eaff;
+}
+.calendar-container .calendar-header .calendar-month, .calendar-container .calendar-header .calendar-year {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #222;
+  margin: 0 4px;
+}
+.calendar-container .calendar-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.calendar-container .calendar-table th, .calendar-container .calendar-table td {
+  width: 48px;
+  height: 48px;
+  text-align: center;
+  padding: 0;
+  font-size: 1.15rem;
+  color: #222;
+  background: #fff;
+  border-radius: 12px;
+  transition: background 0.2s, color 0.2s;
+}
+.calendar-container .calendar-table th {
+  color: #222;
+  font-weight: 600;
+  background: #fff;
+}
+.calendar-container .calendar-table td {
+  cursor: pointer;
+}
+.calendar-container .calendar-table td.today {
+  background: #222;
+  color: #fff;
+  font-weight: 700;
+}
+.calendar-container .calendar-table td.selected {
+  background: #1a1446;
+  color: #fff;
+  font-weight: 700;
+}
+.calendar-container .calendar-table td.highlight {
+  background: #e0d7ff;
+  color: #1a1446;
+}
+.calendar-container .calendar-table td.past-day {
+  color: #bbb !important;
+  opacity: 0.5;
+  pointer-events: none;
+}
+.calendar-container .calendar-table td:hover:not(.selected):not(.today):not(.past-day) {
+  background: #f3eaff;
+}
+
+.task-table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2%;
+  padding-right: 2%;
+  padding-left: 2%;
+}
+.task-table-header h2 {
+  font-weight: 700;
+  font-size: 22px;
+  color: #222;
+  margin: 0;
+}
+.task-table-header .task-table-actions {
+  display: flex;
+  gap: 12px;
+}
+.task-table-header .task-table-actions button, .task-table-header .task-table-actions .add-task-link {
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  padding: 8px 18px;
+  border: none;
+  transition: background 0.2s, color 0.2s, border 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.task-table-header .task-table-actions .download-btn {
+  background: #1BC58D;
+  color: #fff;
+  width: 142px;
+  height: 29px;
+  border-radius: 4px;
+  padding-top: 8px;
+  padding-right: 12px;
+  padding-bottom: 8px;
+  padding-left: 12px;
+  gap: 10px;
+  font-size: 12px;
+}
+.task-table-header .task-table-actions .sort-btn {
+  background: #fff;
+  color: #FF9900;
+  border: 1.5px solid #FF9900;
+  width: 90px;
+  height: 29px;
+  border-width: 1px;
+  border-radius: 4px;
+  padding-top: 8px;
+  padding-right: 12px;
+  padding-bottom: 8px;
+  padding-left: 12px;
+  gap: 10px;
+  font-size: 10px;
+}
+.task-table-header .task-table-actions .add-task-link {
+  text-decoration: none;
+  color: white;
+}
+
+table.task-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+table.task-table thead tr {
+  background: #F7F8FA;
+  color: #A3AED0;
+  font-weight: 600;
+  font-size: 15px;
+}
+table.task-table th, table.task-table td {
+  text-align: left;
+  padding: 12px 8px;
+}
+table.task-table th {
+  color: #A3AED0;
+  font-weight: 600;
+}
+table.task-table td {
+  color: #222;
+  font-weight: 500;
+  background: #fff;
+}
+table.task-table tbody tr {
+  border-bottom: 1px solid #F1F1F1;
+}
+
+.priority-dropdown {
+  position: relative;
+  display: inline-block;
+}
+.priority-dropdown .priority-btn {
+  border: none;
+  border-radius: 8px;
+  padding: 4px 16px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.priority-dropdown .priority-btn.low {
+  background: #FDE7E7;
+  color: #F75555;
+}
+.priority-dropdown .priority-btn.medium {
+  background: #D6F5E7;
+  color: #1BC58D;
+}
+.priority-dropdown .priority-btn.high {
+  background: #FFE7D6;
+  color: #FF9900;
+}
+.priority-dropdown .priority-list {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.0666666667);
+  z-index: 10;
+  min-width: 100px;
+}
+.priority-dropdown .priority-list div {
+  padding: 8px 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  margin: 2px;
+  cursor: pointer;
+}
+.priority-dropdown .priority-list div.low {
+  background: #FDE7E7;
+  color: #F75555;
+}
+.priority-dropdown .priority-list div.medium {
+  background: #D6F5E7;
+  color: #1BC58D;
+}
+.priority-dropdown .priority-list div.high {
+  background: #FFE7D6;
+  color: #FF9900;
+}
+
+.add-task-link {
+  width: 103px;
+  height: 29px;
+  border-radius: 4px;
+  padding-top: 8px;
+  padding-right: 12px;
+  padding-bottom: 8px;
+  padding-left: 12px;
+  gap: 10px;
+  background: rgb(255, 102, 0);
+  font-size: 6px;
+}
+
+.flex-task {
+  display: flex;
+  padding-top: 20px;
+}
+
+.vector-two {
+  width: 36.7502250671px;
+  height: 38.5003471375px;
+  top: 1.75px;
+  left: 2.63px;
+}
+
+@media screen and (max-width: 1440px) {
+  .dashboard-main-boxs {
+    width: 1139px;
+    height: 971px;
+    top: 27.09px;
+    left: 282px;
+  }
+  .task-div {
+    width: 1139px;
+    min-width: 1139px;
+    max-width: 1139px;
+  }
+  .flexcard {
+    width: 238px;
+    height: 155px;
+    top: 85.52px;
+    left: 28.85px;
+  }
+  .task-table-container {
+    width: 738px;
+    height: 640.43px;
+    top: 265.52px;
+    left: 28.85px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .dashboard-main-boxs {
+    width: 100%;
+    height: auto;
+    margin: 16px;
+    padding: 16px;
+  }
+  .task-div {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    flex-direction: column;
+    margin: 16px;
+    padding: 16px;
+  }
+  .flexdiv-group {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .flexcard {
+    width: calc(50% - 20px);
+    margin: 10px;
+  }
+  .task-table-container {
+    width: 100%;
+    height: auto;
+    margin: 16px 0;
+  }
+  .rightrate-group {
+    width: 100%;
+    height: auto;
+    margin-top: 16px;
+  }
+  .progress-card {
+    width: 100%;
+    height: auto;
+  }
+}
+@media screen and (max-width: 768px) {
+  .dashboard-main-boxs {
+    margin: 8px;
+    padding: 8px;
+    border-radius: 24px;
+  }
+  .task-div {
+    margin: 8px;
+    padding: 8px;
+    border-radius: 24px;
+  }
+  .flexcard {
+    width: 100%;
+    margin: 8px 0;
+  }
+  .task-table-header {
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .task-table-actions {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .download-btn,
+  .sort-btn,
+  .add-task-link {
+    width: 100%;
+    justify-content: center;
+  }
+  table.task-table th, table.task-table td {
+    padding: 8px 4px;
+    font-size: 14px;
+  }
+  .progress-gauge svg {
+    width: 200px;
+    height: 100px;
+  }
+  .calendar-container .calendar-table th, .calendar-container .calendar-table td {
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+  }
+}/*# sourceMappingURL=task.css.map */

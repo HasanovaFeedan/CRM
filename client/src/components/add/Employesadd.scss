@@ -1,0 +1,248 @@
+.modal-col-arxa {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-ici {
+  background: rgba(239, 239, 239, 1);
+  border-radius: 18px;
+  padding: 36px 32px 24px 32px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+  max-width: 95vw;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-basliq-alani {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.modal-basliq {
+  font-size: 28px;
+  font-weight: 600;
+  color: #222;
+  font-family: Roboto;
+}
+
+.modal-bagla {
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.modal-bagla:hover {
+  color: #ff6600;
+}
+
+.isci-form-qutu {
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 28px 12px 18px 12px;
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.isci-formu {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-setr {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 0;
+}
+
+.form-girdi {
+  flex: 1;
+  height: 40px;
+  border-radius: 12px;
+  padding: 8px 12px;
+  background: rgba(239, 239, 239, 0.53);
+  font-size: 16px;
+  font-family: Satoshi, Arial, sans-serif;
+  color: #222;
+  border: 1px solid #e5e5e5;
+  outline: none;
+  transition: border 0.2s;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+}
+
+.form-girdi:focus {
+  border: 1.5px solid #ff6600;
+  background: #fff;
+}
+
+.foto-yukle-alani {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  background: #f7f7f7;
+  border-radius: 8px;
+  border: 1px dashed #bbb;
+  cursor: pointer;
+  transition: border 0.2s;
+}
+
+.foto-yukle-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #888;
+  font-size: 15px;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  padding: 8px 0;
+}
+
+.foto-yukle-ikon {
+  font-size: 28px;
+  margin-bottom: 4px;
+}
+
+.olustur-btn {
+  width: 100%;
+  height: 52px;
+  border-radius: 64px;
+  padding: 8px 12px;
+  gap: 10px;
+  background: rgba(255, 102, 0, 1);
+  color: white;
+  border: none;
+  font-size: 20px;
+  margin-top: 24px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.olustur-btn:hover {
+  background: #c04d00;
+}
+
+@media screen and (max-width: 1024px) {
+  .modal-ici {
+    width: 90%;
+    padding: 24px;
+  }
+
+  .modal-basliq {
+    font-size: 24px;
+  }
+
+  .form-girdi {
+    font-size: 15px;
+    height: 38px;
+  }
+
+  .olustur-btn {
+    height: 48px;
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .modal-ici {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .modal-basliq {
+    font-size: 20px;
+  }
+
+  .form-setr {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .form-girdi {
+    width: 100%;
+    height: 36px;
+    font-size: 14px;
+  }
+
+  .foto-yukle-alani {
+    min-height: 40px;
+  }
+
+  .foto-yukle-label {
+    font-size: 14px;
+  }
+
+  .foto-yukle-ikon {
+    font-size: 24px;
+  }
+
+  .olustur-btn {
+    height: 44px;
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .modal-ici {
+    padding: 16px;
+  }
+
+  .modal-basliq {
+    font-size: 18px;
+  }
+
+  .modal-bagla {
+    font-size: 24px;
+  }
+
+  .isci-form-qutu {
+    padding: 20px 16px;
+  }
+
+  .form-girdi {
+    height: 34px;
+    font-size: 13px;
+  }
+
+  .foto-yukle-alani {
+    min-height: 36px;
+  }
+
+  .foto-yukle-label {
+    font-size: 13px;
+  }
+
+  .foto-yukle-ikon {
+    font-size: 20px;
+  }
+
+  .olustur-btn {
+    height: 40px;
+    font-size: 15px;
+  }
+} 
