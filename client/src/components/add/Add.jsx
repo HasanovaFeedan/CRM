@@ -1,9 +1,24 @@
 import React, { useState, useRef } from 'react'
 import "./add.scss"
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const Add = ({ isOpen, onClose }) => {
   const [selectedTaskType, setSelectedTaskType] = useState('client');
+  const [deadline, setDeadline] = useState(null);
+  const [calendarOpen, setCalendarOpen] = useState(false);
+  const datePickerRef = useRef(null);
   const modalContentRef = useRef(null);
+
+ 
+  const formatDate = (date) => {
+    if (!date) return '';
+    const d = new Date(date);
+    const day = String(d.getDate()).padStart(2, '0');
+    const month = String(d.getMonth() + 1).padStart(2, '0');
+    const year = d.getFullYear();
+    return `${day} / ${month} / ${year}`;
+  };
 
   if (!isOpen) return null;
 
@@ -51,6 +66,15 @@ const Add = ({ isOpen, onClose }) => {
 
           {selectedTaskType === 'client' ? (
             <form className="new-task-form">
+                  <div className="form-group">
+               
+                <div className="form-row">
+                  <select>
+                    <option>Select Project</option>
+                  </select>
+                  <button type="button" className="add-new-btn">+ Add new</button>
+                </div>
+              </div>
               <div className="form-group">
                 <label>Select Project:</label>
                 <div className="form-row">
@@ -81,13 +105,42 @@ const Add = ({ isOpen, onClose }) => {
                 </div>
               </div>
 
+              {/* DEADLINE FIELD WITH REACT-DATEPICKER */}
               <div className="form-group">
                 <label>Deadline:</label>
-                <div className="form-row">
-                  <input type="text" placeholder="dd / mm / yyyy" style={{ flex: 1 }} />
-                  <span className="calendar-icon">📅</span>
+                <div className="form-row" style={{ position: 'relative' }}>
+                  <div className="deadline-input-wrapper">
+                    <DatePicker
+                      ref={datePickerRef}
+                      selected={deadline}
+                      onChange={date => setDeadline(date)}
+                      dateFormat="dd / MM / yyyy"
+                      customInput={
+                        <input
+                          type="text"
+                          placeholder="dd / mm / yyyy"
+                          className="deadline-input"
+                          value={deadline ? formatDate(deadline) : ''}
+                          readOnly
+                          style={{ background: 'transparent' }}
+                        />
+                      }
+                      open={calendarOpen}
+                      onClickOutside={() => setCalendarOpen(false)}
+                      onSelect={() => setCalendarOpen(false)}
+                      popperPlacement="bottom-end"
+                    />
+                    <img
+                      src="/image/cals.png"
+                      alt="calendar"
+                      className="calendar-icon"
+                      style={{ position: 'absolute', right: 18, top: '50%', transform: 'translateY(-50%)', cursor: 'pointer', width: 22, height: 22 }}
+                      onClick={() => setCalendarOpen(true)}
+                    />
+                  </div>
                 </div>
               </div>
+
 
               <div className="flex-forms">
                 <div className="direc-forms">
@@ -137,11 +190,55 @@ const Add = ({ isOpen, onClose }) => {
                   <button type="button" className="add-new-btn">+ Add new</button>
                 </div>
               </div>
+              {/* DEADLINE FIELD WITH REACT-DATEPICKER */}
               <div className="form-group">
                 <label>Deadline:</label>
-                <div className="form-row">
-                  <input type="text" placeholder="dd / mm / yyyy" style={{ flex: 1 }} />
-                  <span className="calendar-icon">📅</span>
+                <div className="form-row" style={{ position: 'relative' }}>
+                  <div className="deadline-input-wrapper">
+                    <DatePicker
+                      ref={datePickerRef}
+                      selected={deadline}
+                      onChange={date => setDeadline(date)}
+                      dateFormat="dd / MM / yyyy"
+                      customInput={
+                        <input
+                          type="text"
+                          placeholder="dd / mm / yyyy"
+                          className="deadline-input"
+                          value={deadline ? formatDate(deadline) : ''}
+                          readOnly
+                          style={{ background: 'transparent' }}
+                        />
+                      }
+                      open={calendarOpen}
+                      onClickOutside={() => setCalendarOpen(false)}
+                      onSelect={() => setCalendarOpen(false)}
+                      popperPlacement="bottom-end"
+                    />
+                    <img
+                      src="/image/cals.png"
+                      alt="calendar"
+                      className="calendar-icon"
+                      style={{ position: 'absolute', right: 18, top: '50%', transform: 'translateY(-50%)', cursor: 'pointer', width: 22, height: 22 }}
+                      onClick={() => setCalendarOpen(true)}
+                    />
+                  </div>
+                </div>
+              </div>
+                <div className="flex-forms">
+                <div className="direc-forms">
+                  <p className="doc">Documents</p>
+                  <div className="document">
+                    <img src="/image/documebt.png" alt="document icon" />
+                    <p>Select from base</p>
+                  </div>
+                  <button type="button">+ Add New</button>
+                </div>
+                <div className="direc-coment">
+                  <p className="doc">Documents</p>
+                  <div className='com-div'>
+                    <input type="text" placeholder='Add comment' />
+                  </div>
                 </div>
               </div>
               <button type="submit" className="create-btn">Create</button>

@@ -9,7 +9,7 @@ background: linear-gradient(180deg, #102b54 0%, #08182C 100%);
 } */  
  
 
-.element-class {  /* doğru class neyse */
+.element-class { 
   height: auto !important;
   min-height: 0 !important;
 }

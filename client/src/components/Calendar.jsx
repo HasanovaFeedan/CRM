@@ -6,117 +6,102 @@ const monthNames = [
   "July", "August", "September", "October", "November", "December"
 ];
 
-function getMonthName(month) {
-  return monthNames[month];
-}
-
-const Calendar = ({ mode = 'Monthly' }) => {
+const Calendar = ({ selectedDate, setSelectedDate, onSelect }) => {
   const today = new Date();
-  const [currentMonth, setCurrentMonth] = useState(today.getMonth());
-  const [currentYear, setCurrentYear] = useState(today.getFullYear());
-  const [selectedDay, setSelectedDay] = useState(null);
+  const [currentMonth, setCurrentMonth] = useState(
+    selectedDate ? selectedDate.getMonth() : today.getMonth()
+  );
+  const [currentYear, setCurrentYear] = useState(
+    selectedDate ? selectedDate.getFullYear() : today.getFullYear()
+  );
 
-  if (mode === 'Yearly') {
-    return (
-      <div className="calendar-container">
-        <div className="calendar-header">
-          <button onClick={() => setCurrentYear(y => y - 1)}>&lt;</button>
-          <span className="calendar-year">{currentYear}</span>
-          <button onClick={() => setCurrentYear(y => y + 1)}>&gt;</button>
-        </div>
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: '16px',
-          padding: '12px 0'
-        }}>
-          {monthNames.map((name, idx) => (
-            <div
-              key={name}
-              className={`calendar-month-box${idx === currentMonth && currentYear === today.getFullYear() ? ' today' : ''}`}
-              style={{
-                background: '#fff',
-                borderRadius: '12px',
-                padding: '18px 0',
-                textAlign: 'center',
-                fontWeight: 600,
-                fontSize: '1.1rem',
-                color: '#222',
-                cursor: 'pointer',
-                boxShadow: idx === currentMonth && currentYear === today.getFullYear() ? '0 0 0 2px #222' : '0 1px 4px #0001',
-                transition: 'all 0.2s',
-              }}
-              onClick={() => setCurrentMonth(idx)}
-            >
-              {name}
-            </div>
-          ))}
-        </div>
-      </div>
-    );
-  }
-
-  // Monthly mode
-  const firstDay = new Date(currentYear, currentMonth, 1).getDay() || 7;
   const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+  const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+  // Monday = 0, Sunday = 6
+  const adjustedFirstDay = (firstDay + 6) % 7;
 
-  let calendarRows = [];
-  let date = 1;
-  for (let i = 0; i < 6; i++) {
-    let row = [];
-    for (let j = 1; j <= 7; j++) {
-      if ((i === 0 && j < firstDay) || date > daysInMonth) {
-        row.push(<td key={j}></td>);
-      } else {
-        let classes = [];
-        const isToday =
-          date === today.getDate() &&
-          currentMonth === today.getMonth() &&
-          currentYear === today.getFullYear();
-        const isPast =
-          (currentYear < today.getFullYear()) ||
-          (currentYear === today.getFullYear() && currentMonth < today.getMonth()) ||
-          (currentYear === today.getFullYear() && currentMonth === today.getMonth() && date < today.getDate());
-        if (isToday) classes.push('today');
-        if (selectedDay === date) classes.push('selected');
-        if (isPast) classes.push('past-day');
-        row.push(
-          <td
-            key={j}
-            className={classes.join(' ')}
-            onClick={() => setSelectedDay(date)}
-          >
-            {date}
-          </td>
-        );
-        date++;
+  const handlePrevMonth = () => {
+    if (currentMonth === 0) {
+      setCurrentMonth(11);
+      setCurrentYear(currentYear - 1);
+    } else {
+      setCurrentMonth(currentMonth - 1);
+    }
+  };
+
+  const handleNextMonth = () => {
+    if (currentMonth === 11) {
+      setCurrentMonth(0);
+      setCurrentYear(currentYear + 1);
+    } else {
+      setCurrentMonth(currentMonth + 1);
+    }
+  };
+
+  const handleDayClick = (day) => {
+    const date = new Date(currentYear, currentMonth, day);
+    if (setSelectedDate) setSelectedDate(date);
+    if (onSelect) onSelect(date);
+  };
+
+  const renderCalendar = () => {
+    const rows = [];
+    let days = [];
+    for (let i = 0; i < adjustedFirstDay; i++) {
+      days.push(<td key={`empty-${i}`}></td>);
+    }
+    for (let day = 1; day <= daysInMonth; day++) {
+      const isToday =
+        day === today.getDate() &&
+        currentMonth === today.getMonth() &&
+        currentYear === today.getFullYear();
+      let isSelected = false;
+      if (selectedDate) {
+        isSelected =
+          day === selectedDate.getDate() &&
+          currentMonth === selectedDate.getMonth() &&
+          currentYear === selectedDate.getFullYear();
+      }
+      days.push(
+        <td
+          key={day}
+          className={`${isToday ? 'today' : ''} ${isSelected ? 'selected' : ''}`}
+          onClick={() => handleDayClick(day)}
+        >
+          {day}
+        </td>
+      );
+      if (days.length === 7) {
+        rows.push(<tr key={day}>{days}</tr>);
+        days = [];
       }
     }
-    calendarRows.push(<tr key={i}>{row}</tr>);
-    if (date > daysInMonth) break;
-  }
+    if (days.length > 0) {
+      while (days.length < 7) {
+        days.push(<td key={`empty-end-${days.length}`}></td>);
+      }
+      rows.push(<tr key="last">{days}</tr>);
+    }
+    return rows;
+  };
 
   return (
     <div className="calendar-container">
       <div className="calendar-header">
-        <button onClick={() => {
-          let m = currentMonth - 1, y = currentYear;
-          if (m < 0) { m = 11; y--; }
-          setCurrentMonth(m); setCurrentYear(y);
-        }}>&lt;</button>
-        <span className="calendar-month">{getMonthName(currentMonth)}</span>
+        <button onClick={handlePrevMonth}>&lt;</button>
+        <span className="calendar-month">{monthNames[currentMonth]}</span>
         <span className="calendar-year">{currentYear}</span>
-        <button onClick={() => {
-          let m = currentMonth + 1, y = currentYear;
-          if (m > 11) { m = 0; y++; }
-          setCurrentMonth(m); setCurrentYear(y);
-        }}>&gt;</button>
+        <button onClick={handleNextMonth}>&gt;</button>
       </div>
       <table className="calendar-table">
         <thead>
-          <tr>{weekDays.map(d => <th key={d}>{d}</th>)}</tr>
+          <tr>
+            {weekDays.map(day => (
+              <th key={day}>{day}</th>
+            ))}
+          </tr>
         </thead>
-        <tbody>{calendarRows}</tbody>
+        <tbody>{renderCalendar()}</tbody>
       </table>
     </div>
   );

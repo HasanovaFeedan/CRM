@@ -97,7 +97,7 @@ vertical-align: middle;
   
 }
 .see-kpi-details {
-width: 318px;
+width: 400px;
 height: 42px;
 top: 720.31px;
 left: 33px;
@@ -106,6 +106,7 @@ padding-top: 8px;
 padding-right: 12px;
 padding-bottom: 8px;
 padding-left: 12px;
+ margin-top: 2%;
 gap: 10px;
 background: rgba(255, 102, 0, 1);
 border: none;
@@ -135,8 +136,8 @@ background: rgb(192, 77, 0);
   gap: 12px;
 }
 .sort-by-select {
-width: 90px;
-height: 29px;
+width: 100px;
+height: 35px;
 border-radius: 4px;
 padding-top: 8px;
 padding-right: 12px;
@@ -147,13 +148,13 @@ border-width: 1px;
 border: 1px solid rgba(255, 102, 0, 1);
 background: transparent;
 color:  rgba(255, 102, 0, 1);
-font-size: 11px;
+font-size: 13px;
 
 
 }
 .new-employee-btn {
 width: 136px;
-height: 29px;
+height: 35px;
 border-radius: 4px;
 padding-top: 8px;
 padding-right: 12px;
@@ -505,4 +506,39 @@ font-size: 30px;
 .employees-container{
 
 }
+}
+
+
+.dr-edmp{
+  display: flex;
+  flex-direction: column;
+ 
+}
+
+
+.dashboard-header-emp{
+  display: flex;
+  justify-content: space-between;
+  .dashboard-header-right-client{
+    display: flex;
+    gap: 10px;
+  }
+}
+
+.download-excel-dash{
+  background: rgba(16, 185, 129, 1);
+  width: 183px;
+height: 40px;
+top: 22.31px;
+left: 926.44px;
+border-radius: 20px;
+padding-top: 8px;
+padding-right: 12px;
+padding-bottom: 8px;
+padding-left: 12px;
+gap: 10px;
+border: none;
+color: white;
+font-size: 14px;
+
 }

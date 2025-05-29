@@ -85,7 +85,7 @@ border-radius: 8px;
   box-shadow: 0 2px 12px #0001;
   padding: 24px;
   width: 365px;
-  height: 609px;
+  height: 624px;
   font-family: 'Inter', sans-serif;
 }
 
@@ -615,13 +615,31 @@ left: 2.63px;
   }
 
   .calendar-container {
-    .calendar-table {
-      th, td {
-        width: 36px;
-        height: 36px;
-        font-size: 14px;
-      }
+    padding: 15px;
+  }
+
+  .calendar-header {
+    margin-bottom: 15px;
+
+    button {
+      width: 35px;
+      height: 35px;
+      font-size: 18px;
     }
+
+    .calendar-month-year {
+      font-size: 16px;
+    }
+  }
+
+  .calendar-weekday {
+    font-size: 12px;
+    height: 35px;
+  }
+
+  .calendar-day {
+    min-height: 35px;
+    font-size: 12px;
   }
 }
 body {

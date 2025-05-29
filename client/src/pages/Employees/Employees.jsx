@@ -5,6 +5,29 @@ import Employesadd from '../../components/add/Employesadd'
 import ChangingProgressProvider from "./ChangingProgressProvider";
 import { buildStyles, CircularProgressbar } from 'react-circular-progressbar';
 
+const downloadExcel = () => {
+  // Dummy employee data for export
+  const employees = [
+    { name: 'Name', surname: 'Surname', activeTasks: 24, activeShipments: 36 },
+    { name: 'Name', surname: 'Surname', activeTasks: 24, activeShipments: 36 },
+    { name: 'Name', surname: 'Surname', activeTasks: 24, activeShipments: 36 },
+    { name: 'Name', surname: 'Surname', activeTasks: 24, activeShipments: 36 },
+    { name: 'Name', surname: 'Surname', activeTasks: 24, activeShipments: 36 },
+    { name: 'Name', surname: 'Surname', activeTasks: 24, activeShipments: 36 },
+  ];
+  const csv = [
+    ['Name', 'Surname', 'Active Tasks', 'Active Shipments'],
+    ...employees.map(e => [e.name, e.surname, e.activeTasks, e.activeShipments])
+  ].map(row => row.join(",")).join("\n");
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'employees.csv';
+  a.click();
+  URL.revokeObjectURL(url);
+};
+
 const Employees = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -15,7 +38,7 @@ const Employees = () => {
 
   return (
     <div className='dashboard-main-box'>
-      <div className="dashboard-header-client">
+      <div className="dashboard-header-emp">
         <h2>Employees</h2>
         <div className="dashboard-header-right-client">
           <div className="search-container">
@@ -44,11 +67,12 @@ const Employees = () => {
           <span className="notification-badge">
             <FaBell />
           </span>
-          <button className='download-excell'>Download Excel  <img className='dow' src="/image/download.png" alt="" /></button>
+          <button className='download-excel-dash' onClick={downloadExcel}>Download Excel  <img className='dow' src="/image/download.png" alt="" /></button>
         </div>
       </div>
       <div className="employees-container">
-        <div className="kpi-panel">
+ <div className="dr-emp">
+         <div className="kpi-panel">
           <div className="kpi-header">
             <span>KPI</span>
 
@@ -91,8 +115,10 @@ const Employees = () => {
               <span>Feature Name</span>
             </div>
           </div>
-          <button className="see-kpi-details">See all KPI details</button>
+       
         </div>
+           <button className="see-kpi-details">See all KPI details</button>
+ </div>
         <div className="employee-list-section">
           <div className="employee-list-header">
             <span>Employee List</span>
@@ -105,8 +131,8 @@ const Employees = () => {
           </div>
           <div className="employee-cards-grid">
             {[1,2,3,4,5,6].map((_, idx) => {
-              const activeTasks = 24; // ileride datadan gelecek
-              const activeShipments = 36; // ileride datadan gelecek
+              const activeTasks = 24; 
+              const activeShipments = 36; 
               return (
                 <div className="employee-card" key={idx}>
                   <div className="employee-card-top">

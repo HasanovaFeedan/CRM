@@ -12,7 +12,7 @@
 }
 
 .modal-content {
-  width: 35%;
+  width: 45%;
   border-radius: 20px;
   background: #f4f7fa;
   padding: 32px 24px 24px 24px;
@@ -45,14 +45,15 @@
 .new-task-form {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 23px;
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 6px;
+  gap: 10px;
+  padding-top: 10px;
 }
 
 .form-row {
@@ -60,12 +61,12 @@
   flex-direction: row;
   align-items: center;
   gap: 12px;
-  width: 100%;
+  width: 100% !important;
 }
 
 .form-group label {
   min-width: 140px;
-  font-weight: bolder;
+
 color: rgba(48, 86, 211, 1);
 
   margin-bottom: 2px;
@@ -90,7 +91,7 @@ color: rgba(48, 86, 211, 1);
 }
 
 .add-new-btn {
-  width: 137px;
+  width: 150px;
   height: 40px;
   border-radius: 12px;
   padding: 8px 12px;
@@ -116,7 +117,9 @@ select {
   font-size: 16px;
   background: rgba(239, 239, 239, 0.53);
   outline: none;
-  border: 1px solid #c0c0c0;
+border: none;
+display: flex;
+align-items: center;
 }
 
 .calendar-icon {
@@ -195,7 +198,7 @@ color: white;
 
 
     .document {
-      width: 221px;
+      width: 250px;
 height: 112px;
 border-radius: 12px;
 
@@ -233,8 +236,8 @@ border-radius: 12px;
 
     .com-div{
   
-            width: 221px;
-height: 200px;
+            width: 301px;
+height: 170px;
 border-radius: 12px;
 
       border: none;
@@ -255,6 +258,7 @@ border-radius: 12px;
     .taskty{
       color: rgba(48, 86, 211, 1);
       font-weight: bolder;
+      
 
     }
     
@@ -330,4 +334,39 @@ border-radius: 12px;
   .direc-forms, .direc-coment {
     min-width: 100%;
   }
+}
+
+.deadline-input-wrapper {
+  background: rgba(239, 239, 239, 0.53);
+  border-radius: 14px;
+  padding: 0 8px 0 0;
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 44px;
+}
+
+.deadline-input {
+  width: 100% !important;
+  min-width: 100% !important;
+  height: 44px !important;
+  border-radius: 14px;
+  padding: 10px 14px 10px 14px;
+  font-size: 16px;
+  background: transparent !important;
+  outline: none;
+  border: none;
+  display: block;
+  box-sizing: border-box;
+}
+
+.calendar-icon {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  width: 22px;
+  height: 22px;
 }

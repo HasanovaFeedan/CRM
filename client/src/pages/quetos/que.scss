@@ -1,3 +1,32 @@
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap');
+
+body {
+  font-family: 'Satoshi', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Test styles for Satoshi font
+.general-title {
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 500;
+}
+
+.secenek-metin {
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 400;
+}
+
+.op-inp {
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 400;
+}
+
+.dashboard-header-emp h2 {
+  font-family: 'Satoshi', sans-serif;
+  font-weight: 700;
+}
+
 .general-title{
     font-family: Roboto;
 font-weight: 500;
@@ -166,15 +195,6 @@ color: rgba(48, 86, 211, 1);
   cursor: pointer;
 }
 
-.secenek-metin {
-font-family: Roboto;
-font-weight: 400;
-
-  font-size: 15px;
-  color: rgba(87, 99, 113, 1);
-
-}
-
 .gun-girdisi {
   background-color: #f3f4f6; 
   padding: 10px 6px;
@@ -190,225 +210,354 @@ font-weight: 400;
 }
 
 // Tablet ve Mobile için medya sorguları
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1391px) {
+  .flex-op {
+    display: block;
+  }
+
   .left-op {
-    width: 35%;
-    padding-left: 12px;
-    padding-top: 10px;
-    gap: 14px;
-    label {
-      font-size: 16px;
-      gap: 8px;
-      img {
-        width: 18px;
-        height: 16px;
-      }
-    }
-    p {
-      font-size: 14px;
-    }
-  }
-  .right-op {
-    width: 62%;
-    padding: 16px;
-    gap: 18px;
-  }
-  .op-f {
     width: 100%;
-    height: 35px;
-    padding: 6px 10px;
-    .op-inp {
-      height: 35px;
-      font-size: 14px;
-    }
+    margin-bottom: 24px;
   }
+
+  .right-op {
+    width: 100%;
+  }
+
   .one-input-op {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .op-side {
+    width: 100%;
+  }
+
+  .second-input-op {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .flex-operation {
+    flex-direction: column;
     gap: 12px;
   }
-  .secenek-kapsayici {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 4px;
-    margin-top: 10px;
+
+  .op-f {
     width: 100%;
   }
-  .secenek-metin, .gun-girdisi, .ek-metin {
+
+  .rate-selector {
+    .option-group {
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+
+  .direction-f {
+    .flex-date-div {
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .flex-da {
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+
+  .fr {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .op-fa {
     width: 100%;
-    order: unset;
-    font-size: 13px;
+  }
+
+  .op-inpa {
+    width: 100%;
+  }
+
+  .dashboard-header-emp {
+    flex-direction: column;
+    gap: 16px;
+    padding: 0 2%;
+
+    .dashboard-header-right-client {
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    .search-container {
+      width: 60%;
+    }
+
+    .download-excel-dash {
+      width: 35%;
+      font-size: 12px;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .flex-op {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .left-op {
+    width: 100%;
+    padding: 16px;
+  }
+
+  .right-op {
+    width: 100%;
+    padding: 16px;
+  }
+
+  .one-input-op {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .op-side {
+    width: 100%;
+  }
+
+  .second-input-op {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .flex-operation {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .op-f {
+    width: 100%;
+  }
+
+  .rate-selector {
+    .option-group {
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+
+  .direction-f {
+    .flex-date-div {
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .flex-da {
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+
+  .fr {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .op-fa {
+    width: 100%;
+  }
+
+  .op-inpa {
+    width: 100%;
+  }
+
+  .dashboard-header-emp {
+    padding: 0 2%;
+
+    h2 {
+      font-size: 24px;
+    }
+
+    .dashboard-header-right-client {
+      gap: 16px;
+    }
+
+    .search-container {
+      width: 220px;
+      height: 40px;
+    }
+
+    .download-excel-dash {
+      width: 160px;
+      height: 40px;
+      font-size: 14px;
+    }
   }
 }
 
 @media screen and (max-width: 768px) {
-  .left-op {
-    width: 38%;
-    padding-left: 8px;
-    padding-top: 8px;
-    gap: 10px;
-    label {
-      font-size: 14px;
-      gap: 6px;
-      img {
-        width: 16px;
-        height: 14px;
-      }
-    }
-    p {
-      font-size: 12px;
-    }
-  }
-  .right-op {
-    width: 60%;
-    padding: 10px;
+  .flex-op {
     gap: 12px;
   }
-  .one-input-op {
-    flex-direction: column;
-    gap: 6px;
+
+  .left-op, .right-op {
+    padding: 12px;
   }
-  .op-side {
-    width: 100%;
-    padding: 0;
-    gap: 4px;
-    label {
-      font-size: 11px;
+
+  .one-input-op, .second-input-op {
+    gap: 12px;
+  }
+
+  .op-inp {
+    font-size: 14px;
+    height: 40px;
+  }
+
+  .rate-selector {
+    .title {
+      font-size: 16px;
+    }
+
+    .label-text {
+      font-size: 14px;
     }
   }
-  .op-f {
-    width: 100%;
-    height: 28px;
-    padding: 3px 6px;
-    gap: 4px;
-    .op-inp {
-      height: 28px;
-      font-size: 11px;
+
+  .direction-f {
+    .p-d {
+      font-size: 14px;
+    }
+
+    .calendar-div, .clock-div {
+      height: 40px;
     }
   }
-  .flex-date-div {
-    flex-direction: column;
-    gap: 6px;
-    width: 100%;
+
+  .pic-drc {
+    p {
+      font-size: 14px;
+    }
   }
-  .flex-da {
+
+  .op-fat {
+    input {
+      font-size: 14px;
+    }
+  }
+
+  .dashboard-header-emp {
     flex-direction: column;
     align-items: flex-start;
-    gap: 6px;
-    width: 100%;
-  }
-  .direction-f {
-    width: 100%;
-    gap: 6px;
-  }
-  .pic-drc {
-    padding-left: 0;
-    p {
-      font-size: 11px;
+    gap: 12px;
+    padding: 0 2%;
+
+    .dashboard-header-right-client {
+      width: 100%;
+      justify-content: space-between;
     }
-    label {
-      font-size: 11px;
-      gap: 6px;
+
+    .search-container {
+      width: 60%;
+      height: 36px;
     }
-  }
-  .crt-op {
-    width: 100%;
-    height: 30px;
-    font-size: 14px;
-    margin-top: 10px;
-  }
-  .seric {
-    font-size: 16px;
-  }
-  .question {
-    font-size: 14px;
-  }
-  .secenek-kapsayici {
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 4px;
-    margin-top: 8px;
-    width: 100%;
-  }
-  .secenek-metin, .gun-girdisi, .ek-metin {
-    width: 100%;
-    order: unset;
-    font-size: 12px;
-  }
-  .direction-f, .flex-date-div, .flex-da, .one-input-op, .pic-drc {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    overflow: visible;
+
+    .download-excel-dash {
+      width: 35%;
+      height: 36px;
+      font-size: 12px;
+      padding: 6px 8px;
+    }
   }
 }
 
 @media screen and (max-width: 480px) {
-  .general-title,
-  h1.general-title,
-  h2.general-title,
-  h3.general-title,
-  h4.general-title,
-  h5.general-title,
-  h6.general-title,
-  div.general-title,
-  span.general-title {
-    font-size: 10px !important;
-    line-height: 1.2 !important;
+  .flex-op {
+    gap: 8px;
   }
-  .left-op {
-    width: 100%;
-    padding-left: 0;
-    padding-top: 4px;
-    gap: 4px;
-    label {
-      font-size: 10px;
-      gap: 2px;
-      img {
-        width: 10px;
-        height: 9px;
-      }
+
+  .left-op, .right-op {
+    padding: 8px;
+  }
+
+  .one-input-op, .second-input-op {
+    gap: 8px;
+  }
+
+  .op-inp {
+    font-size: 12px;
+    height: 36px;
+  }
+
+  .rate-selector {
+    .title {
+      font-size: 14px;
     }
+
+    .label-text {
+      font-size: 12px;
+    }
+  }
+
+  .direction-f {
+    .p-d {
+      font-size: 12px;
+    }
+
+    .calendar-div, .clock-div {
+      height: 36px;
+      font-size: 12px;
+    }
+  }
+
+  .pic-drc {
     p {
-      font-size: 9px;
+      font-size: 12px;
     }
   }
-  .right-op {
-    width: 100%;
-    padding: 2px;
+
+  .op-fat {
+    input {
+      font-size: 12px;
+    }
+  }
+
+  .dashboard-header-emp {
+    gap: 8px;
+    padding: 0 1%;
+
+    h2 {
+      font-size: 20px;
+    }
+
+    .dashboard-header-right-client {
+      gap: 8px;
+    }
+
+    .search-container {
+      width: 55%;
+      height: 32px;
+    }
+
+    .download-excel-dash {
+      width: 40%;
+      height: 32px;
+      font-size: 11px;
+      padding: 4px 6px;
+    }
+  }
+
+  .secenek-kapsayici {
+    flex-direction: column;
+    align-items: flex-start;
     gap: 4px;
   }
-  .p-d, .title, .active-title, .client-list-title, .secenek-metin, .ek-metin, .label-text, .option, .rate-type, .download-excell, .sort-btn, .new-client-btn, .client-list-actions span, .dashboard-header-client h2, .pic-drc p, .pic-drc label {
-    font-size: 9px !important;
+
+  .gun-girdisi {
+    width: 40px;
+    font-size: 12px;
   }
-  .op-inp, select, input[type="text"], input[type="number"], input[type="email"], input[type="password"] {
-    font-size: 9px !important;
-    height: 18px !important;
-    padding: 2px 4px !important;
-  }
-  .calendar-div, .clock-div {
-    max-width: 60px;
-    height: 18px;
-    font-size: 9px;
-    padding: 2px 4px;
-  }
-  .i, .question, .question-i, .seric, .foto-yukle-ikon {
-    font-size: 11px !important;
-  }
-  .olustur-btn, .crt-op, button {
-    font-size: 10px !important;
-    height: 22px !important;
-    padding: 2px 6px !important;
-  }
-  .secenek-kapsayici {
-    gap: 1px;
-    margin-top: 2px;
-  }
-  .one-input-op, .flex-date-div, .flex-da, .direction-f, .pic-drc {
-    gap: 3px;
-  }
-  .p-d{
-    font-size: 2px;
+
+  .ek-metin {
+    font-size: 12px;
   }
 }
