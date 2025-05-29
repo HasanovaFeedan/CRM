@@ -18,6 +18,7 @@ import { Mapdata } from "./data";
 import { topology } from "./topology";
 import MapStatic from "./map";
 import MapChart from "./map";
+import CustomerGrowthCard from "../../components/Customercard";
 
 const percentage = 85;
 
@@ -239,6 +240,22 @@ const Home = () => {
                   <td>Order name ezample</td>
                   <td>0299387748932</td>
                   <td className="order-price">$103</td>
+                </tr>      <tr>
+                  <td>Order name ezample</td>
+                  <td>0299387748932</td>
+                  <td className="order-price">$103</td>
+                </tr>      <tr>
+                  <td>Order name ezample</td>
+                  <td>0299387748932</td>
+                  <td className="order-price">$103</td>
+                </tr>      <tr>
+                  <td>Order name ezample</td>
+                  <td>0299387748932</td>
+                  <td className="order-price">$103</td>
+                </tr>      <tr>
+                  <td>Order name ezample</td>
+                  <td>0299387748932</td>
+                  <td className="order-price">$103</td>
                 </tr>
               </tbody>
             </table>
@@ -247,9 +264,10 @@ const Home = () => {
         <div className="direc">
           <div className="card lorem-card">
             <MapChart/>
+            
           </div>
           <div className="customer-growth-card">
-            Customer Growth (Chart Placeholder)
+      <CustomerGrowthCard/>
           </div>
         </div>
       </div>

@@ -34,7 +34,7 @@
 
 .flexdiv-group {
   display: flex;
-  gap: 10px;
+  gap: 27px;
   padding-left: 0;
   padding-top: 0;
 }
@@ -60,7 +60,7 @@
 
 .task-table-container {
   // width: 880px;
-  height: 640.43px;
+  // height: 640.43px;
   border-radius: 8px;
   background: #fff;
   box-shadow: 0 2px 8px rgba(24, 59, 90, 0.07);
@@ -84,7 +84,7 @@ border-radius: 8px;
   border-radius: 8px;
   box-shadow: 0 2px 12px #0001;
   padding: 24px;
-  width: 335px;
+  width: 365px;
   height: 609px;
   font-family: 'Inter', sans-serif;
 }
@@ -275,36 +275,41 @@ left: 26.65px;
     .download-btn {
       background: #1BC58D;
       color: #fff;
-      width: 142px;
-height: 29px;
+      width: 150px;
+height: 33px;
 border-radius: 4px;
 padding-top: 8px;
 padding-right: 12px;
-padding-bottom: 8px;
+
 padding-left: 12px;
 gap: 10px;
-font-size: 12px;
-
+font-size: 13px;
+  font-family: 'Satoshi', sans-serif;
     }
     .sort-btn {
      background: #fff;
       color: #FF9900;
       border: 1.5px solid #FF9900;
-      width: 90px;
-height: 29px;
+      width: 98px;
+height: 33px;
 border-width: 1px;
 border-radius: 4px;
 padding-top: 8px;
 padding-right: 12px;
 padding-bottom: 8px;
-padding-left: 12px;
+  font-family: 'Satoshi', sans-serif;
 gap: 10px;
-font-size: 10px;
+font-size: 13px;
 
     }
     .add-task-link {
       text-decoration: none;
       color: white;
+            width: 98px;
+height: 33px;
+      border: 1.5px solid #FF9900;
+      font-weight: lighter;
+      font-size: 13px;
     }
   }
 }
@@ -312,6 +317,7 @@ font-size: 10px;
 table.task-table {
   width: 100%;
   border-collapse: collapse;
+  margin-top: 1%;
   
   thead tr {
     background: #F7F8FA;
@@ -336,6 +342,17 @@ table.task-table {
     border-bottom: 1px solid #F1F1F1;
   }
 }
+tbody {
+    display: block;
+    max-height: 420px;   
+    overflow-y: auto;
+    width: 100%;
+  }
+  thead, tbody tr {
+    display: table;
+    width: 100%;
+    
+  }
 
 .priority-dropdown {
   position: relative;
@@ -423,7 +440,20 @@ top: 1.75px;
 left: 2.63px;
 
 }
-
+.flexcard {
+  width: 370px !important;
+  height: 220px !important;
+  border-radius: 8px;
+  box-shadow: 0px 5.62px 9.13px -2.11px rgba(0, 0, 0, 0.07);
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+.flexcard table {
+  max-width: 100%;
+}
 // 1440px styles
 @media screen and (max-width: 1440px) {
   .dashboard-main-boxs {
@@ -440,10 +470,14 @@ left: 2.63px;
   }
 
   .flexcard {
-    width: 238px;
+    width: 268px;
     height: 155px;
     top: 85.52px;
     left: 28.85px;
+   
+
+
+    
   }
 
   .task-table-container {
@@ -590,3 +624,20 @@ left: 2.63px;
     }
   }
 }
+body {
+  font-family: 'Satoshi', sans-serif;
+
+}
+
+table.task-table th:nth-child(1),
+table.task-table td:nth-child(1) { width: 180px; }
+table.task-table th:nth-child(2),
+table.task-table td:nth-child(2) { width: 120px; }
+table.task-table th:nth-child(3),
+table.task-table td:nth-child(3) { width: 150px; }
+table.task-table th:nth-child(4),
+table.task-table td:nth-child(4) { width: 180px; }
+table.task-table th:nth-child(5),
+table.task-table td:nth-child(5) { width: 140px; }
+table.task-table th:nth-child(6),
+table.task-table td:nth-child(6) { width: 120px; }

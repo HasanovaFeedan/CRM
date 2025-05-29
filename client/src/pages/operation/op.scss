@@ -133,6 +133,8 @@ font-size: 20px;
     padding: 12px;
     box-shadow: 0px 5.62px 9.13px -2.11px rgba(0, 0, 0, 0.07);
     background: rgba(255, 255, 255, 1);
+    height: calc(100vh - 200px);
+    overflow-y: auto;
 }
 
 .flex-op{
@@ -284,6 +286,7 @@ color: rgb(61, 104, 244);
     width: 75%;
     padding: 10px;
     gap: 12px;
+    height: calc(100vh - 180px);
   }
 
   .op-f {
@@ -345,6 +348,7 @@ color: rgb(61, 104, 244);
     width: 70%;
     padding: 6px;
     gap: 8px;
+    height: calc(100vh - 160px);
   }
 
   .one-input-op {
@@ -402,4 +406,27 @@ color: rgb(61, 104, 244);
   .question {
     font-size: 14px;
   }
+}
+
+.flex-order{
+  display: flex;
+  gap: 20px;
+}
+
+.order-input{
+   display: flex;
+  width: 450px;
+  height: 43px;
+  border-radius: 12px;
+  padding: 8px 12px;
+  gap: 10px;
+  background: rgba(239, 239, 239, 0.53);
+  align-items: center;
+  justify-content: center;
+}
+
+
+.op-f-order{
+
+
 }

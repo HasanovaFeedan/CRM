@@ -1,0 +1,67 @@
+.cg-card {
+  background: linear-gradient(135deg, #003366, #004a99);
+  color: white;
+  border-radius: 20px;
+  padding: 20px;
+  width: 300px;
+  position: relative;
+  font-family: Arial, sans-serif;
+}
+
+.cg-header {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.cg-percentage {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.cg-progress-container {
+  background-color: white;
+  border-radius: 10px;
+  height: 40px;
+  overflow: hidden;
+}
+
+.cg-progress-bar {
+  height: 100%;
+  background: repeating-linear-gradient(
+    45deg,
+     rgba(255, 130, 47, 1),
+    rgba(255, 130, 47, 1) 10px,
+    #ff9122 10px,
+    #ff9933 20px
+  );
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  color: white;
+  border-radius: 10px 0 0 10px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.cg-arrow-btn {
+
+  top: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.basaline{
+    display: flex;
+    justify-content: space-between;
+}

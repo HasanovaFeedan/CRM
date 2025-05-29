@@ -141,7 +141,7 @@ const Operation = () => {
               <label>My Customer</label>
               <div className="op-f">
                 <select className='op-inp'>
-                  <option value="">Select Shipper</option>
+                  <option value="">Shipper</option>
                   <option value="shipper1">Shipper 1</option>
                   <option value="shipper2">Shipper 2</option>
                   <option value="shipper3">Shipper 3</option>
@@ -235,6 +235,7 @@ const Operation = () => {
             </label>
           </div>
           <div className="emp-op"></div>
+
         </div>
       </div>
       <button className='crt-op'>Create</button>

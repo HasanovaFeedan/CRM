@@ -20,6 +20,10 @@ const initialTasks = [
   { name: 'Name example', priority: 'High', deadline: '05 / 12/ 2025', person: 'Person Name', operation: 'Import', timer: '02: 08: 35' },
   { name: 'Name example', priority: 'Medium', deadline: '05 / 12/ 2025', person: 'Person Name', operation: 'Import', timer: '02: 08: 35' },
   { name: 'Name example', priority: 'Low', deadline: '05 / 12/ 2025', person: 'Person Name', operation: 'Import', timer: '02: 08: 35' },
+  { name: 'Name example', priority: 'Low', deadline: '05 / 12/ 2025', person: 'Person Name', operation: 'Import', timer: '02: 08: 35' },
+  { name: 'Name example', priority: 'Low', deadline: '05 / 12/ 2025', person: 'Person Name', operation: 'Import', timer: '02: 08: 35' },
+  { name: 'Name example', priority: 'Low', deadline: '05 / 12/ 2025', person: 'Person Name', operation: 'Import', timer: '02: 08: 35' },
+  { name: 'Name example', priority: 'Low', deadline: '05 / 12/ 2025', person: 'Person Name', operation: 'Import', timer: '02: 08: 35' },
 ];
 
 function downloadExcel() {
@@ -74,8 +78,19 @@ function TaskTable({ onAddTaskClick }) {
       <div className="task-table-header">
         <h2>Tasks List</h2>
         <div className="task-table-actions">
-          <button className="download-btn" onClick={downloadExcel}>Download Excel <span style={{ fontSize: 18 }}>↓</span></button>
-          <button className="sort-btn">Sort by <span style={{ fontSize: 18 }}>▼</span></button>
+          <button className="download-btn" onClick={downloadExcel}>Download Excel <img src="/image/download.png" alt="" /></button> 
+
+
+<select className='sort-btn'>
+  <option value="asc">Sort By</option>
+
+  <option value="asc">Artan</option>
+  <option value="desc">Azalan</option>
+ 
+</select>
+
+
+        
           <button style={{fontSize:"12px"}} className="add-task-link" onClick={onAddTaskClick}>+ New task</button>
         </div>
       </div>
@@ -115,7 +130,7 @@ const Task = () => {
   const [calendarMode, setCalendarMode] = useState('Monthly');
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
   return (
-    <div className="dashboard-main-boxs">
+    <div className="dashboard-main-box">
             <div className="dashboard-header">
               <h2>Tasks</h2>
               <div className="dashboard-header-right">
@@ -162,7 +177,7 @@ const Task = () => {
               <h5>Complated</h5>
               <h1 className='num'>63</h1>
             </div>
-            <img className='vector-two' src="/image/Vector.png" alt="" />
+    <img style={{width:"36px"}} src="/image/icon-tt.png" alt="" />
           </div>
           <div className="flexcard">
             <div className="coulmn-writes">
@@ -180,10 +195,7 @@ const Task = () => {
         <div className="progress-card">
           <div className="progress-header">
             <span>Progress Rate</span>
-            <select className="progress-period" Chart={calendarMode} onChange={e => setCalendarMode(e.target.Chart)}>
-              <option>Monthly</option>
-              <option>Yearly</option>
-            </select>
+         
           </div>
           <div style={{maxWidth:"130px",width:"100%",display:"flex", justifyContent:"center",alignItems:"center",marginLeft:"70px"}}>
             <CircularProgressbar

@@ -4,6 +4,18 @@
     box-sizing: border-box;
 }
 
-body{
+/* body{
 background: linear-gradient(180deg, #102b54 0%, #08182C 100%);
+} */  
+ 
+
+.element-class {  /* doğru class neyse */
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+
+body{
+    background: linear-gradient(125.01deg, #111A23 -1.1%, #082E4D 88.13%);
+
 }
