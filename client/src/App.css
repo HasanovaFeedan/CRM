@@ -7,10 +7,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* body{
-background: linear-gradient(180deg, #102b54 0%, #08182C 100%);
-} */  
- 
 
 .element-class { 
   height: auto !important;
@@ -19,6 +15,5 @@ background: linear-gradient(180deg, #102b54 0%, #08182C 100%);
 
 
 body{
-    background: linear-gradient(125.01deg, #111A23 -1.1%, #082E4D 88.13%);
-
+  background: linear-gradient(180deg, #102b54 0%, #08182C 100%);
 }
