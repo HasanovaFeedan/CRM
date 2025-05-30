@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './cli.scss'
 import { FaBell } from 'react-icons/fa'
-
+import { IoSearch } from "react-icons/io5";
 const dummyClients = [
   { code: '3456789987', name: 'Name example', country: 'Country Name', city: 'City Name', lastSent: 'Today', active: true },
   { code: '3456789987', name: 'Name example', country: 'Country Name', city: 'City Name', lastSent: 'Today', active: true },
@@ -47,28 +47,26 @@ const Client = () => {
       <div className="dashboard-header-client">
         <h2>Clients</h2>
         <div className="dashboard-header-right-client">
-          <div className="search-container">
+          <div className="search-containers">
             <input 
               type="text" 
-              className="search-input" 
+              className="search-inputs" 
               placeholder="Search..." 
               style={{ 
-                background: 'rgba(229, 229, 229, 1)',
+                background: 'transparent',
                 border: 'none',
                 outline: 'none',
-                width: '100%',
+                width: '90%',
                 height: '100%',
                 fontFamily: 'Satoshi',
                 fontSize: '16px',
-                color: '#111A23'
+                color: '#111A23',
+                borderRadius:"20px"
               }} 
             />
-            <span className="search-icon">
-              <svg width="18" height="18" fill="none" stroke="#111A23" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="8" cy="8" r="7" />
-                <line x1="13" y1="13" x2="17" y2="17" />
-              </svg>
-            </span>
+           
+<IoSearch className='sear' />
+
           </div>
           <button className="notification-badge"><FaBell /></button>
           <button
