@@ -97,23 +97,39 @@ vertical-align: middle;
   
 }
 .see-kpi-details {
-width: 400px;
-height: 42px;
-top: 720.31px;
-left: 33px;
-border-radius: 8px;
-padding-top: 8px;
-padding-right: 12px;
-padding-bottom: 8px;
-padding-left: 12px;
- margin-top: 2%;
-gap: 10px;
-background: rgba(255, 102, 0, 1);
-border: none;
-color: white;
+  width: 400px;
+  height: 42px;
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-top: 2%;
+  gap: 10px;
+  background: rgba(255, 102, 0, 1);
+  border: none;
+  color: white;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
 }
+
 .see-kpi-details:hover {
-background: rgb(192, 77, 0);
+  background: rgb(192, 77, 0);
+}
+
+@media screen and (max-width: 1391px) {
+  .see-kpi-details {
+    width: 400px;
+    margin: 2% auto;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .see-kpi-details {
+    width: 300px;
+    height: 40px;
+    font-size: 14px;
+  }
 }
 
 .employee-list-section {
@@ -136,22 +152,27 @@ background: rgb(192, 77, 0);
   gap: 12px;
 }
 .sort-by-select {
-width: 100px;
-height: 35px;
-border-radius: 4px;
-padding-top: 8px;
-padding-right: 12px;
-padding-bottom: 8px;
-padding-left: 12px;
-gap: 10px;
-border-width: 1px;
-border: 1px solid rgba(255, 102, 0, 1);
-background: transparent;
-color:  rgba(255, 102, 0, 1);
-font-size: 13px;
-
-
+  width: 100px;
+  height: 35px;
+  border-radius: 4px;
+  padding-top: 8px;
+  padding-right: 12px;
+  padding-bottom: 8px;
+  padding-left: 12px;
+  gap: 10px;
+  border-width: 1px;
+  border: 1px solid rgba(255, 102, 0, 1);
+  background: transparent;
+  color: rgba(255, 102, 0, 1);
+  font-size: 13px;
+  font-family: Satoshi;
+  cursor: pointer;
 }
+
+.sort-by-select option {
+  color: #111A23;
+}
+
 .new-employee-btn {
 width: 136px;
 height: 35px;
@@ -485,29 +506,303 @@ font-size: 30px;
 
 
 @media screen and (max-width: 1391px) {
-  .employees-container{
+  .employees-container {
     display: block;
   }
   .employee-cards-grid {
-  display: block;
-  gap: 18px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+  .employee-list-actions {
+    display: flex;
+    gap: 12px;
+  }
+  .employee-list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+  }
+  .download-excell {
+    display: flex;
+  }
+  .kpi-panel {
+    width: 100%;
+    margin-bottom: 24px;
+  }
+  .employee-list-section {
+    width: 100%;
+  }
+  .dashboard-header-emp {
+    flex-direction: row;
+    align-items: center;
+    padding: 0 2%;
+    gap: 16px;
+
+    .dashboard-header-right-client {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .search-container {
+      width: 250px;
+      height: 40px;
+    }
+
+    .download-excel-dash {
+      width: 160px;
+      height: 40px;
+      font-size: 14px;
+    }
+  }
 }
 
-.employee-list-actions{
-  display: none;
-}
-.employee-list-header{
-  display: none;
-}
-.download-excell{
-  display: none;
+@media screen and (max-width: 1024px) {
+  .employees-container {
+    padding: 16px 0;
+  }
+  .employee-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .employee-card {
+    height: auto;
+    min-height: 241px;
+  }
+  .employee-card-top {
+    gap: 12px;
+  }
+  .employee-avatar {
+    width: 80px;
+    height: 80px;
+  }
+  .employee-name, .employee-surname {
+    font-size: 20px;
+  }
+  .employee-kpi {
+    width: 80px;
+    height: 24px;
+    font-size: 12px;
+  }
+  .employee-info {
+    font-size: 14px;
+  }
+  .employee-details {
+    font-size: 14px;
+  }
+  .dashboard-header-emp {
+    padding: 0 2%;
+    gap: 12px;
+
+    h2 {
+      font-size: 24px;
+    }
+
+    .dashboard-header-right-client {
+      gap: 12px;
+    }
+
+    .search-container {
+      width: 220px;
+    }
+
+    .download-excel-dash {
+      width: 140px;
+      font-size: 13px;
+    }
+  }
 }
 
-.employees-container{
+@media screen and (max-width: 768px) {
+  .employees-container {
+    padding: 16px 0;
+  }
 
-}
+  .employee-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .employee-card {
+    height: auto;
+    min-height: 241px;
+  }
+
+  .employee-card-top {
+    gap: 12px;
+  }
+
+  .employee-avatar {
+    width: 80px;
+    height: 80px;
+  }
+
+  .employee-name, .employee-surname {
+    font-size: 20px;
+  }
+
+  .employee-kpi {
+    width: 80px;
+    height: 24px;
+    font-size: 12px;
+  }
+
+  .employee-info {
+    font-size: 14px;
+  }
+
+  .employee-details {
+    font-size: 14px;
+  }
+
+  .dashboard-header-emp {
+    padding: 0 2%;
+    gap: 12px;
+
+    h2 {
+      font-size: 24px;
+    }
+
+    .dashboard-header-right-client {
+      gap: 12px;
+    }
+
+    .search-container {
+      width: 220px;
+    }
+
+    .download-excel-dash {
+      width: 140px;
+      font-size: 13px;
+    }
+  }
 }
 
+@media screen and (max-width: 480px) {
+  .employees-container {
+    padding: 12px 0;
+  }
+
+  .employee-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .employee-card {
+    padding: 16px;
+  }
+
+  .employee-card-top {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+  }
+
+  .employee-avatar {
+    width: 70px;
+    height: 70px;
+    margin-right: 0;
+  }
+
+  .employee-name-surname-box {
+    align-items: center;
+    margin-right: 0;
+  }
+
+  .employee-name, .employee-surname {
+    font-size: 18px;
+  }
+
+  .employee-kpi {
+    width: 70px;
+    height: 22px;
+    font-size: 11px;
+  }
+
+  .employee-info {
+    font-size: 13px;
+  }
+
+  .employee-details {
+    font-size: 13px;
+  }
+
+  .employee-details-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .employee-details-value {
+    margin-left: 0;
+  }
+
+  .dashboard-header-emp {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+
+    h2 {
+      font-size: 20px;
+    }
+
+    .dashboard-header-right-client {
+      width: 100%;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .search-container {
+      width: 100%;
+    }
+
+    .download-excel-dash {
+      width: 100%;
+      font-size: 12px;
+    }
+  }
+
+  .employee-list-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .employee-list-actions {
+    width: 100%;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .sort-by-select {
+    width: 100%;
+  }
+
+  .new-employee-btn {
+    width: 100%;
+  }
+
+  .kpi-panel {
+    padding: 20px 16px;
+  }
+
+  .kpi-features {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .kpi-feature-box {
+    width: 100%;
+  }
+
+  .see-kpi-details {
+    width: 100%;
+    font-size: 14px;
+  }
+}
 
 .dr-edmp{
   display: flex;

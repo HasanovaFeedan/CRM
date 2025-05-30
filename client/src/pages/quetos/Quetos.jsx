@@ -322,10 +322,12 @@ const Quetos = () => {
                     <p>Pickup</p>
                     <label htmlFor="delivery">
                       <input type="checkbox" id="delivery" />
-                      <span>Include Pickup</span>
+                      <span className="include-label">Include Pickup</span>
                     </label>
                   </div>
+                      <div className="emp-op"></div>
                 </div>
+            
               )}
               <div className="second-input-op">
                 <div className="op-side">
@@ -392,7 +394,7 @@ const Quetos = () => {
                                       <p>Delivre</p>
                                       <label htmlFor="delivery">
                                         <input type="checkbox" id="delivery" />
-                                        <span>Include Delivre</span>
+                                        <span className="include-label">Include Delivre</span>
                                       </label>
                                     </div>
                                     <div className="emp-op"></div>
@@ -415,7 +417,7 @@ const Quetos = () => {
                                             <option value="shipper3">Shipper 3</option>
                                           </select>
                                         </div>
-                                        <div className="op-f">
+                                        <div className="op-f salesman-select">
                                           <select className="op-inp">
                                             <option value="">Salesman Name Surname</option>
                                             <option value="shipper1">Shipper 1</option>

@@ -575,7 +575,15 @@
   height: 36px;
   width: 100px;
   font-size: 12px;
-  color: #222;
+  color: #FF6600;
+  font-family: Satoshi;
+  cursor: pointer;
+  padding: 0 12px;
+}
+
+.sort-select option {
+  color: #111A23;
+  background: white;
 }
       .client-table {
         .table-header, .table-row {

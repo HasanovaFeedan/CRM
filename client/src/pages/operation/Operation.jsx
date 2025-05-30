@@ -157,121 +157,73 @@ const Operation = () => {
                   )}
                   <div className="general-section"></div>
                 </div>
-                <div className="right-op">
-                  <div className="one-input-op">
-                    <div className="op-side">
-                      <label htmlFor="">Shipper</label>
-                      <div className="op-f">
-                        <input className="op-inp" type="text" placeholder="" />
-
-                        <span>+</span>
-                        <IoSearch className="seric" />
-                      </div>
-                    </div>
-                    <div className="op-side">
-                      <label htmlFor="">Consignee</label>
-                      <div className="op-f">
-                        <input className="op-inp" type="text" placeholder="" />
-
-                        <span>+</span>
-                        <IoSearch className="seric" />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="emp-op"></div>
-                  <div className="one-input-op">
-                    <div className="op-side">
-                      <label>My Customer</label>
-                      <div className="op-f">
-                        <select className="op-inp">
-                          <option value="">Shipper</option>
-                          <option value="shipper1">Shipper 1</option>
-                          <option value="shipper2">Shipper 2</option>
-                          <option value="shipper3">Shipper 3</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div className="op-side">
-                      <p className="opzero">My Customer</p>
-                      <div className="op-f">
-                        <input className="op-inp" type="text" placeholder="" />
-                        <FaQuestionCircle className="question" />
-                        <span>+</span>
-                        <IoSearch className="seric" />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="emp-op"></div>
-                  <div className="pic-drc">
-                    <p>Picup</p>
-                    <label htmlFor="pickup">
-                      <input type="checkbox" id="pickup" />
-                      <span>Include Pickup</span>
-                    </label>
-                  </div>
-                  <div className="emp-op"></div>
-                  <div className="second-input-op">
-                    <div className="op-side">
-                      <label>Main Carrage</label>
-                      <div className="flex-operation">
+                {direction && (
+                  <div className="right-op">
+                    <div className="one-input-op">
+                      <div className="op-side">
+                        <label htmlFor="">Shipper</label>
                         <div className="op-f">
-                          <input
-                            className="op-inp"
-                            type="text"
-                            placeholder={
-                              transport === "ocean"
-                                ? "Loading Port*"
-                                : "Gateway*"
-                            }
-                          />
+                          <input className="op-inp" type="text" placeholder="" />
+
+                          <span>+</span>
                           <IoSearch className="seric" />
                         </div>
-                        <div className="op-f">
-                          <input
-                            className="op-inp"
-                            type="text"
-                            placeholder={
-                              transport === "ocean"
-                                ? "Shipping Line"
-                                : "Flight number"
-                            }
-                          />
-                        </div>
                       </div>
-                    </div>
-                    <div className="op-side">
-                      <div className="flex-operation">
+                      <div className="op-side">
+                        <label htmlFor="">Consignee</label>
                         <div className="op-f">
-                          <input
-                            className="op-inp"
-                            type="text"
-                            placeholder={
-                              transport === "ocean"
-                                ? "Discharge Port*"
-                                : "Destination*"
-                            }
-                          />
+                          <input className="op-inp" type="text" placeholder="" />
+
+                          <span>+</span>
                           <IoSearch className="seric" />
                         </div>
+                      </div>
+                    </div>
+                    <div className="emp-op"></div>
+                    <div className="one-input-op">
+                      <div className="op-side">
+                        <label>My Customer</label>
                         <div className="op-f">
-                          <input
-                            className="op-inp"
-                            type="text"
-                            placeholder={
-                              transport === "ocean" ? "Voyage No" : "MAWB"
-                            }
-                          />
+                          <select className="op-inp">
+                            <option value="">Shipper</option>
+                            <option value="shipper1">Shipper 1</option>
+                            <option value="shipper2">Shipper 2</option>
+                            <option value="shipper3">Shipper 3</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div className="op-side">
+                        <p className="opzero">My Customer</p>
+                        <div className="op-f">
+                          <input className="op-inp" type="text" placeholder="" />
+                          <FaQuestionCircle className="question" />
+                          <span>+</span>
+                          <IoSearch className="seric" />
                         </div>
                       </div>
                     </div>
-                    <div className="op-side">
-                      {transport === "ocean" ? (
+                    <div className="emp-op"></div>
+                    <div className="pic-drc">
+                      <p>Picup</p>
+                      <label htmlFor="pickup">
+                        <input type="checkbox" id="pickup" />
+                        <span>Include Pickup</span>
+                      </label>
+                    </div>
+                    <div className="emp-op"></div>
+                    <div className="second-input-op">
+                      <div className="op-side">
+                        <label>Main Carrage</label>
                         <div className="flex-operation">
                           <div className="op-f">
                             <input
                               className="op-inp"
                               type="text"
-                              placeholder="QBL"
+                              placeholder={
+                                transport === "ocean"
+                                  ? "Loading Port*"
+                                  : "Gateway*"
+                              }
                             />
                             <IoSearch className="seric" />
                           </div>
@@ -279,233 +231,283 @@ const Operation = () => {
                             <input
                               className="op-inp"
                               type="text"
-                              placeholder="Vessel"
+                              placeholder={
+                                transport === "ocean"
+                                  ? "Shipping Line"
+                                  : "Flight number"
+                              }
                             />
                           </div>
                         </div>
-                      ) : (
+                      </div>
+                      <div className="op-side">
+                        <div className="flex-operation">
+                          <div className="op-f">
+                            <input
+                              className="op-inp"
+                              type="text"
+                              placeholder={
+                                transport === "ocean"
+                                  ? "Discharge Port*"
+                                  : "Destination*"
+                              }
+                            />
+                            <IoSearch className="seric" />
+                          </div>
+                          <div className="op-f">
+                            <input
+                              className="op-inp"
+                              type="text"
+                              placeholder={
+                                transport === "ocean" ? "Voyage No" : "MAWB"
+                              }
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div className="op-side">
+                        {transport === "ocean" ? (
+                          <div className="flex-operation">
+                            <div className="op-f">
+                              <input
+                                className="op-inp"
+                                type="text"
+                                placeholder="QBL"
+                              />
+                              <IoSearch className="seric" />
+                            </div>
+                            <div className="op-f">
+                              <input
+                                className="op-inp"
+                                type="text"
+                                placeholder="Vessel"
+                              />
+                            </div>
+                          </div>
+                        ) : (
+                          <div className="op-f">
+                            <input
+                              className="op-inp"
+                              type="text"
+                              placeholder="Airline"
+                            />
+                            <IoSearch className="seric" />
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                    <div className="emp-op"></div>
+                    <div className="pic-drc">
+                      <p>Delivre</p>
+                      <label htmlFor="delivery">
+                        <input type="checkbox" id="delivery" />
+                        <span>Include Delivre</span>
+                      </label>
+                    </div>
+                    <div className="emp-op"></div>
+                    <div className="one-input-op">
+                      <div className="op-side">
+                        <label>General</label>
                         <div className="op-f">
-                          <input
-                            className="op-inp"
-                            type="text"
-                            placeholder="Airline"
-                          />
-                          <IoSearch className="seric" />
+                          <select className="op-inp">
+                            <option value="">Incoterm</option>
+                            <option value="shipper1">Incoterm 1</option>
+                            <option value="shipper2">Incoterm 2</option>
+                            <option value="shipper3">Incoterm 3</option>
+                          </select>
                         </div>
-                      )}
-                    </div>
-                  </div>
-                  <div className="emp-op"></div>
-                  <div className="pic-drc">
-                    <p>Delivre</p>
-                    <label htmlFor="delivery">
-                      <input type="checkbox" id="delivery" />
-                      <span>Include Delivre</span>
-                    </label>
-                  </div>
-                  <div className="emp-op"></div>
-                  <div className="one-input-op">
-                    <div className="op-side">
-                      <label>General</label>
-                      <div className="op-f">
-                        <select className="op-inp">
-                          <option value="">Incoterm</option>
-                          <option value="shipper1">Incoterm 1</option>
-                          <option value="shipper2">Incoterm 2</option>
-                          <option value="shipper3">Incoterm 3</option>
-                        </select>
+                        <div className="op-f">
+                          <select className="op-inp">
+                            <option value="">Move Type</option>
+                            <option value="shipper1">Shipper 1</option>
+                            <option value="shipper2">Shipper 2</option>
+                            <option value="shipper3">Shipper 3</option>
+                          </select>
+                        </div>
+                        <div className="op-f">
+                          <select className="op-inp">
+                            <option value="">Salesman Name Surname</option>
+                            <option value="shipper1">Shipper 1</option>
+                            <option value="shipper2">Shipper 2</option>
+                            <option value="shipper3">Shipper 3</option>
+                          </select>
+                        </div>
                       </div>
-                      <div className="op-f">
-                        <select className="op-inp">
-                          <option value="">Move Type</option>
-                          <option value="shipper1">Shipper 1</option>
-                          <option value="shipper2">Shipper 2</option>
-                          <option value="shipper3">Shipper 3</option>
-                        </select>
-                      </div>
-                      <div className="op-f">
-                        <select className="op-inp">
-                          <option value="">Salesman Name Surname</option>
-                          <option value="shipper1">Shipper 1</option>
-                          <option value="shipper2">Shipper 2</option>
-                          <option value="shipper3">Shipper 3</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div className="op-side">
+                      <div className="op-side">
                
-                     <div className="flex-opss">
-                                <p>Freight P/C:</p>
-                        <div className="op-fs">
-                        
-                          <select className="op-inps">
+                       <div className="flex-opss">
+                                  <p>Freight P/C:</p>
+                          <div className="op-fs">
                           
-                            <option value="">Collect</option>
-                       
-                          </select>
-                        </div>
-                   </div>
-
-                      <div>
-                   <div className="flex-opss">
-                                <p>Freight P/C:</p>
-                        <div className="op-fs">
-                        
-                          <select className="op-inps">
-                          
-                            <option value="">Collect</option>
-                       
-                          </select>
-                        </div>
-                   </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="emp-op"></div>
-                  <div className="one-input-op">
-                    {transport === 'ocean' ? (
-                      <div style={{ width: '100%', paddingLeft: '2%' }}>
-                        <label className="eod-label" style={{ marginBottom: 8, display: 'block' }}>Expected Order Details</label>
-                        <div style={{ display: 'flex', gap: 32, marginBottom: 6 }}>
-                          <span style={{ color: 'black', fontWeight: 500, fontSize: 15, minWidth: 150 }}>Quantity</span>
-                          <span style={{ color: 'black', fontWeight: 500, fontSize: 15, minWidth: 250 }}>Package Type</span>
-                        </div>
-                        {[0,1,2,3].map(i => (
-                          <div key={i} style={{ display: 'flex', gap: 32, marginBottom: 12 }}>
-                            <input className="op-inp" type="number" style={{ width: '150px', background: '#f5f5f5', borderRadius: 12, border: 'none', height: 43 }} placeholder="" />
-                            <select className="op-inp" style={{ width: '250px', background: '#f5f5f5', borderRadius: 12, border: 'none', height: 43 }}>
-                              <option value=""> </option>
-                              <option value="box">Box</option>
-                              <option value="pallet">Pallet</option>
-                              <option value="carton">Carton</option>
+                            <select className="op-inps">
+                            
+                              <option value="">Collect</option>
+                         
                             </select>
                           </div>
-                        ))}
+                     </div>
+
+                        <div>
+                     <div className="flex-opss">
+                                  <p>Freight P/C:</p>
+                          <div className="op-fs">
+                          
+                            <select className="op-inps">
+                            
+                              <option value="">Collect</option>
+                         
+                            </select>
+                          </div>
+                     </div>
+                        </div>
                       </div>
-                    ) : (
+                    </div>
+                    <div className="emp-op"></div>
+                    <div className="one-input-op">
+                      {transport === 'ocean' ? (
+                        <div style={{ width: '100%', paddingLeft: '2%' }}>
+                          <label className="eod-label" style={{ marginBottom: 8, display: 'block' }}>Expected Order Details</label>
+                          <div style={{ display: 'flex', gap: 32, marginBottom: 6 }}>
+                            <span style={{ color: 'black', fontWeight: 500, fontSize: 15, minWidth: 150 }}>Quantity</span>
+                            <span style={{ color: 'black', fontWeight: 500, fontSize: 15, minWidth: 250 }}>Package Type</span>
+                          </div>
+                          {[0,1,2,3].map(i => (
+                            <div key={i} style={{ display: 'flex', gap: 32, marginBottom: 12 }}>
+                              <input className="op-inp" type="number" style={{ width: '150px', background: '#f5f5f5', borderRadius: 12, border: 'none', height: 43 }} placeholder="" />
+                              <select className="op-inp" style={{ width: '250px', background: '#f5f5f5', borderRadius: 12, border: 'none', height: 43 }}>
+                                <option value=""> </option>
+                                <option value="box">Box</option>
+                                <option value="pallet">Pallet</option>
+                                <option value="carton">Carton</option>
+                              </select>
+                            </div>
+                          ))}
+                        </div>
+                      ) : (
+                        <div className="op-side">
+                          <label>Expected Order Details</label>
+                          <p className="black">Please insert totals or Fill Dimensions</p>
+                          <div className="op-f">
+                            <input
+                              className="op-inp"
+                              type="text"
+                              placeholder={"Gross Weight (KG)"}
+                            />
+                          </div>
+                          <div className="op-f">
+                            <input
+                              className="op-inp"
+                              type="text"
+                              placeholder={"Volume (CBM)"}
+                            />
+                          </div>
+                          <div className="op-f">
+                            <input
+                              className="op-inp"
+                              type="text"
+                              placeholder={"Chargeable Weight (KG)"}
+                            />
+                          </div>
+                          <div className="op-f">
+                            <input
+                              className="op-inp"
+                              type="text"
+                              placeholder={"Number of Packages"}
+                            />
+                          </div>
+                        </div>
+                      )}
                       <div className="op-side">
-                        <label>Expected Order Details</label>
-                        <p className="black">Please insert totals or Fill Dimensions</p>
-                        <div className="op-f">
-                          <input
-                            className="op-inp"
-                            type="text"
-                            placeholder={"Gross Weight (KG)"}
-                          />
-                        </div>
-                        <div className="op-f">
-                          <input
-                            className="op-inp"
-                            type="text"
-                            placeholder={"Volume (CBM)"}
-                          />
-                        </div>
-                        <div className="op-f">
-                          <input
-                            className="op-inp"
-                            type="text"
-                            placeholder={"Chargeable Weight (KG)"}
-                          />
-                        </div>
-                        <div className="op-f">
-                          <input
-                            className="op-inp"
-                            type="text"
-                            placeholder={"Number of Packages"}
-                          />
-                        </div>
-                      </div>
-                    )}
-                    <div className="op-side">
-                      <p className="opzero">sa</p>
-                      <label
-                        htmlFor=""
-                        style={{ display: "flex", gap: "10px" }}
-                      >
-                        <input type="checkbox" id="danger" />
-                        <span>Dangerous Goods</span>
-                      </label>
+                        <p className="opzero">sa</p>
+                        <label
+                          htmlFor=""
+                          style={{ display: "flex", gap: "10px" }}
+                        >
+                          <input type="checkbox" id="danger" />
+                          <span>Dangerous Goods</span>
+                        </label>
 
-                      <div>
-                        <div className="op-fat">
-                          <input
-                            className="op-inpf"
-                            type="text"
-                            placeholder={"Description of  Goods"}
-                          />
+                        <div>
+                          <div className="op-fat">
+                            <input
+                              className="op-inpf"
+                              type="text"
+                              placeholder={"Description of  Goods"}
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>
+                    <div className="emp-op"></div>
+                    <div className="one-input-op">
+                      <div className="op-side">
+                        <label>Additional Fields</label>
+                        <div className="op-f">
+                          <input
+                            className="op-inp"
+                            type="text"
+                            placeholder={"Agent"}
+                          />
+                          <IoSearch/>
+                
+                        </div>
+                        <div className="op-f">
+                          <input
+                            className="op-inp"
+                            type="text"
+                            placeholder={"Reference1"}
+                          />
+                        </div>
+                        <div className="op-f">
+                          <input
+                            className="op-inp"
+                            type="text"
+                            placeholder={"Reference2"}
+                          />
+                        </div>
+                      </div>
+                      <div className="op-side">
+                        <p className="opzero">My Customer</p>
+
+                        <div className="op-f">
+                          <input
+                            className="op-inp"
+                            type="text"
+                            placeholder={"Main Harmonizet"}
+                          />
+                        </div>
+                        <div className="op-f">
+                          <input
+                            className="op-inp"
+                            type="text"
+                            placeholder={"Shipment Mode"}
+                          />
+                        </div>
+                        <div className="op-f">
+                          <input
+                            className="op-inp"
+                            type="text"
+                            placeholder={"Tracking Number"}
+                          />
+                        </div>
+                      </div>
+                      
+                      
+                    </div>
+                    <div className="op-side">
+                        <p className="opzero">My Customer</p>
+
+                        <div className="op-fa">
+                          <input
+                            className="op-inpa"
+                            type="text"
+                            placeholder={"Notes"}
+                          />
+                        </div>
+
+                      </div>
                   </div>
-                  <div className="emp-op"></div>
-                  <div className="one-input-op">
-                    <div className="op-side">
-                      <label>Additional Fields</label>
-                      <div className="op-f">
-                        <input
-                          className="op-inp"
-                          type="text"
-                          placeholder={"Agent"}
-                        />
-                        <IoSearch/>
-              
-                      </div>
-                      <div className="op-f">
-                        <input
-                          className="op-inp"
-                          type="text"
-                          placeholder={"Reference1"}
-                        />
-                      </div>
-                      <div className="op-f">
-                        <input
-                          className="op-inp"
-                          type="text"
-                          placeholder={"Reference2"}
-                        />
-                      </div>
-                    </div>
-                    <div className="op-side">
-                      <p className="opzero">My Customer</p>
-
-                      <div className="op-f">
-                        <input
-                          className="op-inp"
-                          type="text"
-                          placeholder={"Main Harmonizet"}
-                        />
-                      </div>
-                      <div className="op-f">
-                        <input
-                          className="op-inp"
-                          type="text"
-                          placeholder={"Shipment Mode"}
-                        />
-                      </div>
-                      <div className="op-f">
-                        <input
-                          className="op-inp"
-                          type="text"
-                          placeholder={"Tracking Number"}
-                        />
-                      </div>
-                    </div>
-                    
-                    
-                  </div>
-                  <div className="op-side">
-                      <p className="opzero">My Customer</p>
-
-                      <div className="op-fa">
-                        <input
-                          className="op-inpa"
-                          type="text"
-                          placeholder={"Notes"}
-                        />
-                      </div>
-
-                    </div>
-                </div>
+                )}
               </div>
               <button className="crt-op">Create</button>
             </Box>
