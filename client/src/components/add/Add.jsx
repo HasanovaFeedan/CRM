@@ -68,9 +68,11 @@ const Add = ({ isOpen, onClose }) => {
             <form className="new-task-form">
                   <div className="form-group">
                
+
+               
                 <div className="form-row">
                   <select>
-                    <option>Select Project</option>
+                    <option>Select Client</option>
                   </select>
                   <button type="button" className="add-new-btn">+ Add new</button>
                 </div>
