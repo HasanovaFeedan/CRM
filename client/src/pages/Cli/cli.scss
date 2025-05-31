@@ -722,9 +722,10 @@
 
 @media screen and (max-width: 430px) {
   .dashboard-main-box-client {
-    margin-left: 110px;
-    width: 100%;
+    margin-left: 100px;
+ width:  300px !important;
     padding: 6px;
+    margin-bottom: 30px;
   }
 
   .client-list-section, .active-clients-section {
