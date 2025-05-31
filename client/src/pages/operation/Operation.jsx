@@ -8,6 +8,8 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import Typography from "@mui/material/Typography";
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from "@mui/icons-material/Close";
 
 const Operation = () => {
   const [direction, setDirection] = useState('');
@@ -52,7 +54,18 @@ const Operation = () => {
           }}
         >
           <Fade in={open}>
-            <Box sx={style}>
+      <Box sx={{ ...style, position: "relative" }}>
+          <IconButton
+    onClick={handleClose}
+    sx={{
+      position: "absolute",
+      top: 8,
+      right: 8,
+      zIndex: 1,
+    }}
+  >
+    <CloseIcon />
+  </IconButton>
               <div className="flex-op">
                 <div className="left-op">
                   <p>Direction:</p>

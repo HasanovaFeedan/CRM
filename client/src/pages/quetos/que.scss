@@ -761,6 +761,13 @@ color: rgba(48, 86, 211, 1);
       width: 35%;
       font-size: 12px;
     }
+
+  }
+    .right-op {
+    width: 75%;
+    padding: 10px;
+    gap: 12px;
+    height:440px !important;
   }
 }
 
@@ -773,4 +780,18 @@ color: rgba(48, 86, 211, 1);
 
 select.op-inp {
   color: #111 !important;
+}
+
+
+.flex-op{
+  display: flex;
+}
+
+.close-mod{
+  color: rgb(255, 166, 0);
+  font-size: 28px;
+  &:hover{
+    color: rgb(132, 88, 5);
+    cursor: pointer;
+  }
 }

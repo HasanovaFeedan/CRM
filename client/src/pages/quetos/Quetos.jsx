@@ -10,6 +10,9 @@ import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import { Button } from "@mui/material";
 import Backdrop from "@mui/material/Backdrop";
+import IconButton from "@mui/material/IconButton";
+import CloseIcon from "@mui/icons-material/Close";
+
 const Quetos = () => {
   const [direction, setDirection] = useState('');
   const [transport, setTransport] = useState('air');
@@ -57,8 +60,20 @@ const Quetos = () => {
           
         >
 <Fade in={open}>
-            <Box sx={style}>
+               <Box sx={{ ...style, position: "relative" }}>
+                       <IconButton 
+    onClick={handleClose}
+    sx={{
+      position: "absolute",
+      top: 8,
+      right: 8,
+      zIndex: 1,
+    }}
+  >
+    <CloseIcon />
+  </IconButton>
 <div className="flex-op">
+ 
         <div className="left-op">
           <p>Direction:</p>
           <label htmlFor="export">
@@ -139,6 +154,7 @@ const Quetos = () => {
             </>
           )}
         </div>
+        
         <div className="right-op">
           {direction && (
             <>
@@ -569,6 +585,7 @@ const Quetos = () => {
             </>
           )}
         </div>
+         
       </div>
            </Box>
           </Fade>

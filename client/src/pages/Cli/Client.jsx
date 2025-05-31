@@ -1,24 +1,35 @@
+
 import React, { useState } from 'react'
 import './cli.scss'
 import { FaBell } from 'react-icons/fa'
 import { IoSearch } from "react-icons/io5";
 const dummyClients = [
-  { code: '3456789987', name: 'Name example', country: 'Country Name', city: 'City Name', lastSent: 'Today', active: true },
-  { code: '3456789987', name: 'Name example', country: 'Country Name', city: 'City Name', lastSent: 'Today', active: true },
-  { code: '3456789987', name: 'Name example', country: 'Country Name', city: 'City Name', lastSent: 'Today', active: false },
-  { code: '3456789987', name: 'Name example', country: 'Country Name', city: 'City Name', lastSent: 'Today', active: true },
-  { code: '3456789987', name: 'Name example', country: 'Country Name', city: 'City Name', lastSent: 'Today', active: false },
-  { code: '3456789987', name: 'Name example', country: 'Country Name', city: 'City Name', lastSent: 'Today', active: true },
-  { code: '3456789987', name: 'Name example', country: 'Country Name', city: 'City Name', lastSent: 'Today', active: true },
-  { code: '3456789987', name: 'Name example', country: 'Country Name', city: 'City Name', lastSent: 'Today', active: false },
-  { code: '3456789987', name: 'Name example', country: 'Country Name', city: 'City Name', lastSent: 'Today', active: true },
-  { code: '3456789987', name: 'Name example', country: 'Country Name', city: 'City Name', lastSent: 'Today', active: true },
-  { code: '3456789987', name: 'Name example', country: 'Country Name', city: 'City Name', lastSent: 'Today', active: true },
-  { code: '3456789987', name: 'Name example', country: 'Country Name', city: 'City Name', lastSent: 'Today', active: true },
-  { code: '3456789987', name: 'Name example', country: 'Country Name', city: 'City Name', lastSent: 'Today', active: true },
-  { code: '3456789987', name: 'Name example', country: 'Country Name', city: 'City Name', lastSent: 'Today', active: true },
-  { code: '3456789987', name: 'Name example', country: 'Country Name', city: 'City Name', lastSent: 'Today', active: true },
-  { code: '3456789987', name: 'Name example', country: 'Country Name', city: 'City Name', lastSent: 'Today', active: true },
+  { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: false },
+  { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: false },
+  { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: true },
+  { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: false },
+  { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: true },
+  { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: true },
+  { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: true },
+  { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: false },
+  { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: false },
+  { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: true },
+  { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: true },
+  { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: true },
+  { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: true },
+  { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: true },
+  { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: true },
+  { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: false },
+  { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: false },
+  { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: false },
+  { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: false },
+  { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: false },
+  { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: false },
+
+  { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: true },
+
+
+
 ];
 
 const downloadExcel = () => {

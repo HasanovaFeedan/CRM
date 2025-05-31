@@ -67,14 +67,21 @@
       width: 250px;
       height: 42px;
       border-radius: 64px;
+      gap: 10px;
       display: flex;
       align-items: center;
       background: rgb(229, 229, 229);
-      position: relative;
-      padding: 0 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-right: 15px;
+      padding-left: 15px;
 
-    
-
+      .search-icons {
+        display: flex;
+        align-items: center;
+        margin: 0;
+      }
     }
 
     .download-excel {
@@ -154,7 +161,7 @@
 }
 
 .client-table {
-  max-height: 588px;
+  max-height: 700px;
   overflow-y: auto;
   width: 100%;
   border-collapse: collapse;
@@ -259,57 +266,7 @@
   }
 }
 
-@media screen and (max-width: 1024px) {
-  .clients-page {
-    padding: 20px;
-  }
 
-  .clients-container {
-    padding: 16px;
-  }
-
-  .clients-content {
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .client-list, .active-clients {
-    width: 100%;
-  }
-
-  .client-list-header {
-    .client-list-title {
-      font-size: 18px;
-    }
-
-    .client-list-actions {
-      gap: 8px;
-
-      .active-badge, .deactive-badge {
-        font-size: 13px;
-        padding: 3px 8px;
-      }
-
-      .sort-btn, .new-client-btn {
-        width: 100px;
-        height: 32px;
-        font-size: 13px;
-        padding: 6px 12px;
-      }
-    }
-  }
-
-  .client-table, .active-table {
-    font-size: 14px;
-
-    th, td {
-      padding: 8px 0;
-    }
-  }
-
-
-
-}
   .dashboard-header-client {
     padding: 0 2%;
 
@@ -334,101 +291,8 @@
   }
 }
 
-@media screen and (max-width: 768px) {
-  .clients-page {
-    padding: 16px;
-  }
 
-  .clients-container {
-    padding: 12px;
-  }
-
-  .clients-content {
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .client-list, .active-clients {
-    width: 100%;
-  }
-
-  .client-list-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-
-    .client-list-actions {
-      width: 100%;
-      justify-content: space-between;
-    }
-  }
-
-  .dashboard-header-client {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-    padding: 0 2%;
-
-    .dashboard-header-right-client {
-      width: 100%;
-      justify-content: space-between;
-    }
-
-    .search-container {
-      width: 60%;
-      height: 36px;
-    }
-
-    .download-excell {
-      width: 35%;
-      height: 36px;
-      font-size: 12px;
-      padding: 6px 8px;
-    }
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .clients-page {
-    padding: 12px;
-  }
-
-  .clients-container {
-    padding: 8px;
-  }
-
-  .client-list-header {
-    .client-list-actions {
-      flex-wrap: wrap;
-      gap: 8px;
-
-      .active-badge, .deactive-badge {
-        font-size: 12px;
-      }
-
-      .sort-btn, .new-client-btn {
-        width: 90px;
-        height: 30px;
-        font-size: 12px;
-      }
-    }
-  }
-
-  .client-table, .active-table {
-    font-size: 12px;
-  }
-
-  .dashboard-header-client {
-    .search-container {
-      width: 55%;
-    }
-
-    .download-excell {
-      width: 40%;
-      font-size: 11px;
-    }
-  }
-}.dashboard-main-box-client {
+.dashboard-main-box-client {
   padding: 20px;
   font-family: 'Satoshi', sans-serif;
   background-color: #f8f8f8;
@@ -574,16 +438,8 @@
   border-radius: 6px;
   height: 36px;
   width: 100px;
-  font-size: 12px;
-  color: #FF6600;
-  font-family: Satoshi;
-  cursor: pointer;
-  padding: 0 12px;
-}
-
-.sort-select option {
-  color: #111A23;
-  background: white;
+  font-size: 13px;
+  color: #222;
 }
       .client-table {
         .table-header, .table-row {
@@ -641,7 +497,7 @@
         .table-header, .table-row {
           display: grid;
           grid-template-columns: 1fr 2fr 1fr;
-          padding: 8px 0;
+          padding: 15px 0;
           font-size: 13px;
         }
 
@@ -713,7 +569,7 @@
   }
 }
 .active-client-table {
-  max-height: 588px;
+  max-height: 700px;
   overflow-y: auto;
   .table-header, .table-row {
     display: grid;
@@ -722,79 +578,10 @@
     font-size: 13px;
   }
 }
-@media screen and (max-width: 1024px) {
-  .client-container {
-    flex-direction: column;
-    gap: 16px;
-  }
 
-  .client-list-section, .active-clients-section {
-    width: 100%;
-  }
 
-  .client-table .table-header,
-  .client-table .table-row {
-    grid-template-columns: 2fr 2fr 2fr 1fr;
-    font-size: 14px;
-    padding-left: 12px;
-  }
 
-  .active-client-table .table-header,
-  .active-client-table .table-row {
-    grid-template-columns: 1fr 2fr;
-    font-size: 13px;
-    padding: 6px 0;
-  }
-}
 
-@media screen and (max-width: 768px) {
-  .client-table .table-header,
-  .client-table .table-row {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    font-size: 12px;
-    padding-left: 10px;
-  }
-
-  .active-client-table .table-header,
-  .active-client-table .table-row {
-    grid-template-columns: 1fr 1fr;
-    font-size: 12px;
-    padding: 6px 0;
-  }
-
-  .client-container {
-    gap: 12px;
-  }
-
-  .client-list-section, .active-clients-section {
-    padding: 16px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .client-table .table-header,
-  .client-table .table-row {
-    grid-template-columns: 1fr 1fr;
-    font-size: 11px;
-    padding-left: 8px;
-  }
-
-  .active-client-table .table-header,
-  .active-client-table .table-row {
-    grid-template-columns: 1fr;
-    font-size: 11px;
-    padding: 4px 0;
-  }
-
-  .client-list-section, .active-clients-section {
-    padding: 12px;
-  }
-
-  .tab-buttons, .client-actions {
-    flex-direction: column;
-    gap: 8px;
-  }
-}
 
     .search-containers {
       width: 250px;
@@ -804,29 +591,190 @@
       gap: 10px;
       display: flex;
       align-items: center;
-         background: rgb(235, 235, 235);
+         background: rgb(229, 229, 229);
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
-    
-      .search-icons {
 
-        display: flex;
-        align-items: center;
+@media screen and (max-width: 1024px) {
+  .dashboard-header-right-client{
+    display: flex;
+    justify-content: space-around;
+
+  }
+  .dashboard-header-client{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+ 
+  }
+  .dashboard-main-box-client {
+    padding: 10px;
+    margin-left: 150px;
+ width:  720px !important;
+    padding-bottom: 20px;
+    
+  }
+
+  .client-container {
+    flex-direction: column;
+    gap: 10px !important;
+  }
+
+  .client-list-section {
+    width: 100% !important;
+    background: #fff;
+    border: 2px solid #0056ff;
+    border-radius: 12px;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  .client-list-section .client-table {
+    max-height: 400px;
+    min-height: 100px;
+    overflow-y: auto;
+    font-size: 11px;
+    width: 100%;
+  }
+  .client-list-section .client-table .table-header {
+    font-size: 10px;
+    font-weight: 500;
+    padding: 0 0 0 4px;
+    height: 22px;
+  }
+  .client-list-section .client-table .table-row {
+    font-size: 11px;
+    padding: 0 0 0 4px;
+    height: 22px;
+  }
+
+  .active-clients-section {
+    width: 100% !important;
+    padding: 30px;
+    background: #fff;
+    border: 2px solid #0056ff;
+    border-radius: 12px;
+    box-sizing: border-box;
+  }
+
+  .client-table {
+    max-height: 180px;
+    min-height: 180px;
+    overflow-y: auto;
+    font-size: 12px;
+    width: 100%;
+    
+    .table-header, .table-row {
+      grid-template-columns: 0.8fr 1.2fr 0.8fr 0.6fr 0.8fr;
+      padding: 4px 0;
+      height: 36px;
+    }
+  }
+
+  .active-client-table {
+    max-height: 160px !important;
+    font-size: 11px;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .dashboard-main-box-client {
+    margin-left: 90px;
+ width:  460px !important;
+    padding: 8px;
+      padding-bottom: 20px;
+  }
+
+  .client-table {
+    max-height: 160px;
+    
+    .table-header, .table-row {
+      grid-template-columns: 0.7fr 1fr 0.6fr;
+      font-size: 15px;
+      padding: 3px 0;
+      height: 32px;
+    }
+  }
+
+  .active-client-table {
+    max-height: 120px;
+    font-size: 10px;
+  }
+  .client-actions{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }.client-list-header{
+    display: flex;
+    flex-direction: column;
+  
+  }
+
+.table-row{
+  font-size: 10px !important;
+}
+}
+
+@media screen and (max-width: 430px) {
+  .dashboard-main-box-client {
+    margin-left: 110px;
+    width: 100%;
+    padding: 6px;
+  }
+
+  .client-list-section, .active-clients-section {
+    padding: 6px;
+  }
+
+  .client-table {
+    max-height: 50px;
+    
+    .table-header, .table-row {
+      grid-template-columns: 0.6fr 0.8fr 0.4fr;
+      font-size: 10px;
+      padding: 2px 0;
+      height: 28px;
+    }
+  }
+
+  .active-client-table {
+    max-height: 100px;
+    font-size: 9px;
+  }
+
+  .dashboard-header-client {
+    .dashboard-header-right-client {
+      flex-direction: column;
+      width: 100%;
       
-      }
-        .search-inputs {
-        width: 80%;
-        background: transparent;
-        border: none;
-        outline: none;
-        padding-right: 30px;
-   
+      .search-containers {
+        width: 100%;
+        height: 28px;
       }
 
-      .sear{
-        font-size: 23px;
-        margin-right: 15px;
-    
+      .download-excell {
+        width: 100%;
+        height: 28px;
+        font-size: 11px;
       }
+    }
+  }
+
+  .client-list-header {
+    .client-actions {
+      flex-direction: column;
+      width: 100%;
+      
+      .sort-select, .new-client-button {
+        width: 100%;
+        height: 26px;
+        font-size: 11px;
+      }
+    }
+  }
+}
