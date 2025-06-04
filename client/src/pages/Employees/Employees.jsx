@@ -4,9 +4,10 @@ import "./Employes.scss"
 import Employesadd from '../../components/add/Employesadd'
 import ChangingProgressProvider from "./ChangingProgressProvider";
 import { buildStyles, CircularProgressbar } from 'react-circular-progressbar';
+import * as XLSX from 'xlsx';
+import { saveAs } from 'file-saver';
 
 const downloadExcel = () => {
-  // Dummy employee data for export
   const employees = [
     { name: 'Name', surname: 'Surname', activeTasks: 24, activeShipments: 36 },
     { name: 'Name', surname: 'Surname', activeTasks: 24, activeShipments: 36 },
@@ -15,17 +16,20 @@ const downloadExcel = () => {
     { name: 'Name', surname: 'Surname', activeTasks: 24, activeShipments: 36 },
     { name: 'Name', surname: 'Surname', activeTasks: 24, activeShipments: 36 },
   ];
-  const csv = [
+
+  const worksheetData = [
     ['Name', 'Surname', 'Active Tasks', 'Active Shipments'],
     ...employees.map(e => [e.name, e.surname, e.activeTasks, e.activeShipments])
-  ].map(row => row.join(",")).join("\n");
-  const blob = new Blob([csv], { type: 'text/csv' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = 'employees.csv';
-  a.click();
-  URL.revokeObjectURL(url);
+  ];
+
+  const worksheet = XLSX.utils.aoa_to_sheet(worksheetData);
+  const workbook = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(workbook, worksheet, 'Employees');
+
+  const excelBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
+  const data = new Blob([excelBuffer], { type: 'application/octet-stream' });
+
+  saveAs(data, 'employees.xlsx');
 };
 
 const Employees = () => {

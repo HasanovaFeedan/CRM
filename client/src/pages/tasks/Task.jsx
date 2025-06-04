@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import Add from '../../components/add/Add';
 import { FaBell } from 'react-icons/fa';
 import { buildStyles, CircularProgressbar } from 'react-circular-progressbar';
-
+import * as XLSX from 'xlsx'; 
 const priorities = [
   { label: 'Low', color: '#FDE7E7', text: '#F75555' },
   { label: 'Medium', color: '#D6F5E7', text: '#1BC58D' },
@@ -27,17 +27,23 @@ const initialTasks = [
 ];
 
 function downloadExcel() {
-  const csv = [
+  const worksheetData = [
     ['Task Name', 'Priority', 'Deadline', 'Responsible Person', 'Operation type', 'Timer'],
-    ...initialTasks.map(t => [t.name, t.priority, t.deadline, t.person, t.operation, t.timer])
-  ].map(e => e.join(",")).join("\n");
-  const blob = new Blob([csv], { type: 'text/csv' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = 'tasks.csv';
-  a.click();
-  URL.revokeObjectURL(url);
+    ...initialTasks.map(task => [
+      task.name,
+      task.priority,
+      task.deadline,
+      task.person,
+      task.operation,
+      task.timer
+    ])
+  ];
+
+  const worksheet = XLSX.utils.aoa_to_sheet(worksheetData);
+  const workbook = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(workbook, worksheet, 'Tasks');
+
+  XLSX.writeFile(workbook, 'tasks.xlsx');
 }
 
 function PriorityDropdown({ Chart, onChange }) {

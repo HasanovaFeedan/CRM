@@ -751,7 +751,7 @@
   .dashboard-header-client {
     .dashboard-header-right-client {
       flex-direction: column;
-      width: 100%;
+      gap: 10px !important;
       
       .search-containers {
         width: 100%;

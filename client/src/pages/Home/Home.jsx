@@ -159,10 +159,10 @@ const Home = () => {
                 alignItems: "center",
               }}
             >
-              <div style={{ position: "relative", width: 200, height: 200 }}>
+              <div style={{ position: "relative", width: 180, height: 180 }}>
                 <CircularProgressbarWithChildren
                   value={percentage}
-                  strokeWidth={12}
+                  strokeWidth={6}
                   text={`${percentage}%`}
                 >
                   {" "}

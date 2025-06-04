@@ -12,33 +12,235 @@ import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 
 const Operation = () => {
-  const [direction, setDirection] = useState('');
-  const [transport, setTransport] = useState('air');
-  const [shipmentType, setShipmentType] = useState('FCL');
-  const [rateType, setRateType] = useState('spot');
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const [filter, setFilter] = useState("All");
+  const [sortAsc, setSortAsc] = useState(true);
+  const [showAdd, setShowAdd] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
-  const style = {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
-    width: "90vw",
-    maxWidth: "1300px",
-    bgcolor: "background.paper",
-    border: "2px solid #000",
-    boxShadow: 24,
-    borderRadius: "8px",
-    p: 2,
-  };
+  const openModal = () => setModalOpen(true);
+  const closeModal = () => setModalOpen(false);
+    const [direction, setDirection] = useState('');
+    const [transport, setTransport] = useState('air');
+    const [shipmentType, setShipmentType] = useState('FCL');
+    const [rateType, setRateType] = useState('spot');
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+  
+    const style = {
+      position: "absolute",
+      top: "50%",
+      left: "50%",
+      transform: "translate(-50%, -50%)",
+      width: "90vw",
+      maxWidth: "1300px",
+      bgcolor: "background.paper",
+      border: "2px solid #000",
+      boxShadow: 24,
+      borderRadius: "8px",
+      p: 2,
+    };
+  
+  const documents = Array(20)
+    .fill(0)
+    .map((_, idx) => ({
+      type: "Name Example",
+      docimage:
+        idx % 5 === 0
+          ? "ucakmavi"
+          : idx % 5 === 1
+          ? "gemimavi"
+          : idx % 5 === 2
+          ? "busmavi"
+          : idx % 5 === 3
+          ? "sekilmavi"
+          : "trainmavi",
+      arrowimage: "arrowmavi",
+      name: `Client Name ${idx + 1}`,
+      date: "dd / mm / yyyy",
+    }));
+
+  const filteredDocuments =
+    filter === "All"
+      ? documents
+      : filter === "exportgray"
+      ? documents.filter((doc) => doc.arrowimage === "arrowmavi") // örnek
+      : filter === "none"
+      ? []
+      : documents.filter((doc) => doc.docimage === filter);
+
+  const sortedDocuments = [...filteredDocuments].sort((a, b) => {
+    return sortAsc
+      ? a.name.localeCompare(b.name)
+      : b.name.localeCompare(a.name);
+  });
 
   return (
-    <>
-      <div className="full-op">
-        <h1>New Direct Shipment</h1>
-        <Button onClick={handleOpen}>Modal</Button>
+    <div className="dashboard-main-box">
+          <div className="dashboard-header-client">
+        <h2>Operation</h2>
+        <div className="dashboard-header-right-client">
+          <div className="search-containers">
+            <input
+              type="text"
+              className="search-inputs"
+              placeholder="Search..."
+              style={{
+                background: "transparent",
+                border: "none",
+                outline: "none",
+                width: "90%",
+                height: "100%",
+                fontFamily: "Satoshi",
+                fontSize: "16px",
+                color: "#111A23",
+                borderRadius: "20px",
+              }}
+            />
+            <IoSearch className="sear" />
+          </div>
+
+          <button
+            className="download-excell"
+            style={{
+              background: "rgba(16, 185, 129, 1)",
+              width: "183px",
+              height: "42px",
+              borderRadius: "20px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "8px",
+              border: "none",
+              cursor: "pointer",
+            }}
+          >
+            Download Excel
+            <img src="/image/download.png" alt="" style={{ height: "20px" }} />
+          </button>
+     <button className="new-opera"  onClick={handleOpen}>Create New Operation</button>
+
+        </div>
+      </div>
+
+      <div className="doc-wrappersa">
+        <div className="jus">
+          <div className="doc-da">
+            <p className="doc-paa">Document List</p>
+          </div>
+
+          <div className="flex-last">
+            {/* 1. Filter Group */}
+            <div className="doc-headersa">
+              <button
+                className={`gr ${filter === "All" ? "active" : ""}`}
+                onClick={() => setFilter("All")}
+              >
+                All
+              </button>
+              <button
+                className={`gr ${filter === "ucakmavi" ? "active" : ""}`}
+                onClick={() => setFilter("ucakmavi")}
+              >
+                <img src="/image/grayfly.png" alt="" />
+              </button>
+              <button
+                className={`gr ${filter === "gemimavi" ? "active" : ""}`}
+                onClick={() => setFilter("gemimavi")}
+              >
+                <img src="/image/gemigray.png" alt="" />
+              </button>
+              <button
+                className={`gr ${filter === "busmavi" ? "active" : ""}`}
+                onClick={() => setFilter("busmavi")}
+              >
+                <img src="/image/busgray.png" alt="" />
+              </button>
+              <button
+                className={`gr ${filter === "trainmavi" ? "active" : ""}`}
+                onClick={() => setFilter("trainmavi")}
+              >
+                <img className="train" src="/image/traingray.png" alt="" />
+              </button>
+              <button
+                className={`gr ${filter === "sekilmavi" ? "active" : ""}`}
+                onClick={() => setFilter("sekilmavi")}
+              >
+                <img src="/image/sekilgray.png" alt="" />
+              </button>
+            </div>
+
+            {/* 2. Filter Group */}
+            <div className="doc-headersa">
+              <button
+                className={`gr ${filter === "All" ? "active" : ""}`}
+                onClick={() => setFilter("All")}
+              >
+                All
+              </button>
+              <button
+                className={`gr ${filter === "exportgray" ? "active" : ""}`}
+                onClick={() => setFilter("exportgray")}
+              >
+                <img src="/image/exportgray.png" alt="" />
+              </button>
+              <button className="gr" onClick={() => setFilter("none")}>
+                <img src="/image/downgray.png" alt="" />
+              </button>
+              <button className="gr" onClick={() => setFilter("none")}>
+                <img src="/image/busgray.png" alt="" />
+              </button>
+              <button className="gr" onClick={() => setFilter("none")}>
+                <img src="/image/rengray.png" alt="" />
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div className="table-containerssa">
+          <div className="table-rows table-headsa">
+            <div className="colaa type">Document type</div>
+            <div className="colaa type">
+              <img src="/image/docimage.png" alt="docimage" height={20} />
+            </div>
+            <div
+              className="colaa type"
+              style={{ cursor: "pointer" }}
+           
+            >
+              <img src="/image/arrowimage.png" alt="arrowimage" height={20} />
+            </div>
+            <div className="colaa name">Document Name</div>
+            <div className="colaa date">Date</div>
+          </div>
+
+          <div className="table-bodysa">
+            {sortedDocuments.map((doc, idx) => (
+              <div className="table-rowsa" key={idx}>
+                <div className="colaa type">{doc.type}</div>
+                <div className="colaa type">
+                  <img
+                    src={`/image/${doc.docimage}.png`}
+                    alt={doc.docimage}
+                    height={20}
+                  />
+                </div>
+                <div className="colaa type">
+                  <img
+                    src={`/image/${doc.arrowimage}.png`}
+                    alt={doc.arrowimage}
+                    height={20}
+                  />
+                </div>
+                <div className="colaa name">{doc.name}</div>
+                <div className="colaa date">{doc.date}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      <div className="fulsl-op">
+
 
         <Modal
           aria-labelledby="transition-modal-title"
@@ -527,7 +729,7 @@ const Operation = () => {
           </Fade>
         </Modal>
       </div>
-    </>
+  </div>
   );
 };
 

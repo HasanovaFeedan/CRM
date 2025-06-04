@@ -1,0 +1,472 @@
+.client-detail-page {
+  
+  display: flex;
+  flex-direction: column;
+  padding: 30px; // Further increased padding
+  font-family: 'Satoshi', sans-serif; // Match Client.jsx font
+  background-color: white;
+
+  .client-header {
+    
+    padding: 30px; // Further increased padding
+    border-radius: 12px; // Further increased radius
+    margin-bottom: 30px; // Further increased margin
+
+    .client-info-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 30px; // Further increased margin
+
+      .client-avatar-section {
+        display: flex;
+        align-items: center;
+
+        .client-avatar {
+          width: 100px; // Further increased size
+          height: 100px; // Further increased size
+          background-color: #007bff;
+          border-radius: 50%;
+          margin-right: 30px; // Further increased margin
+        }
+
+        .client-id-name {
+          .client-id-number {
+            color: #ff6f00;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 8px; // Further increased margin
+            font-size: 20px; // Further increased font size
+          }
+          h1 {
+            margin: 0 0 8px 0; // Further increased margin
+            font-size: 32px; // Further increased font size
+          }
+          p {
+            margin: 0;
+            color: #6c757d;
+            font-size: 20px; // Further increased font size
+          }
+        }
+      }
+
+      .view-more-info-btn {
+        background-color: #ff6f00;
+        color: white;
+        border: none;
+        padding: 14px 28px; // Further increased padding
+        border-radius: 8px; // Further increased radius
+        cursor: pointer;
+        font-size: 18px; // Further increased font size
+        &:hover {
+          background-color: #e66000;
+        }
+      }
+    }
+
+    .client-contact-info {
+ display: flex;
+justify-content: space-around;
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        font-size: 18px; // Further increased font size
+        color: #343a40;
+       
+        span {
+          margin-left: 12px; // Further increased margin
+        }
+      }
+    }
+  }
+
+  .flex-bas{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .client-actions {
+    display: flex;
+    gap: 25px; // Further increased gap
+    margin-bottom: 40px; // Further increased margin
+
+    .action-btn {
+      flex-grow: 1;
+      padding: 18px 30px; // Further increased padding
+      background-color: #fff;
+      border: 1px solid #ced4da;
+      border-radius: 8px; // Further increased radius
+      cursor: pointer;
+      font-size: 20px; // Further increased font size
+      text-align: center;
+      &:hover {
+        background-color: #f1f3f5;
+      }
+    }
+  }
+
+  .lists-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px; // Further increased gap
+
+    .operation-list-section,
+    .task-list-section {
+      background-color: #fff;
+      padding: 30px; // Further increased padding
+      border-radius: 12px; // Further increased radius
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Slightly adjusted shadow
+      // Set max-height and overflow for scrolling
+      max-height: 500px; // Adjust as needed for desired initial height before scroll
+      overflow-y: auto;
+    
+      .list-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px; // Further increased margin
+        
+        h2 {
+          margin: 0;
+          font-size: 26px; // Further increased font size
+          font-weight: 600;
+        }
+        .legend {
+          font-size: 16px; // Further increased font size
+          color: #6c757d;
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          .legend-item {
+            display: inline-block;
+            width: 16px; // Further increased size
+            height: 16px; // Further increased size
+            margin-right: 8px; // Further increased margin
+            vertical-align: middle;
+            border-radius: 3px; // Added border-radius
+            &.complete-legend {
+              background-color: #0056ff; // Dark blue for complete
+            }
+            &.incomplete-legend {
+              background-color: #a0c4ff; // Light blue for incomplete (adjust as needed)
+            }
+          }
+        }
+      }
+
+      .list-table {
+        .table-header,
+        .table-row {
+          display: grid; // Ensure grid is the active display property
+          padding: 20px 0; // Vertical padding for the row/header height
+          padding-left: 15px; // Space for content after the status border (applied to .table-row)
+          border-bottom: 1px solid #e9ecef;
+          align-items: center;
+          column-gap: 60px; // Corrected to 20px and removed conflicting flex
+          // display: flex; // Removed conflicting flex
+          // justify-content: space-around; // Removed conflicting justify-content
+
+          span {
+            font-size: 18px;
+            // Individual spans (cells) can have their own padding if needed,
+            // but column-gap and row padding might be sufficient.
+            // e.g., padding: 0 5px; for some horizontal padding within cells.
+          }
+        }
+
+        .table-header {
+          font-weight: 600;
+          color: #495057;
+          border-bottom-width: 2px; // Keep thicker border for header
+          background-color: #f8f9fa;
+          // padding-left: 15px; // Header doesn't have the status border, so less left padding might be desired
+                display: flex;    
+                justify-content: space-around;             // Or keep it same as rows for alignment. For now, inherits 15px.
+          span {
+
+            font-size: 19px;
+          }
+        }
+
+        .table-row {
+            display: flex;    
+                justify-content: space-around;  
+          &:last-child {
+            // border-bottom: none; // This is handled by &:not(:last-child) rule for inter-row borders
+          }
+          &.complete-row {
+            border-left: 5px solid #0056ff; // Dark blue left border
+          }
+          &.incomplete-row {
+            border-left: 5px solid #a0c4ff; // Light blue left border (adjust as needed)
+          }
+           &:not(:last-child) {
+             border-bottom: 1px solid #eee; // Match client list style
+           }
+        }
+      // Specific column widths for .list-table when it also has .operation-table or .task-table
+      &.operation-table {
+        .table-header, .table-row {
+          grid-template-columns: 1.2fr 2fr 1.5fr; // Adjusted for 3 columns
+        }
+      }
+      &.task-table {
+         .table-header, .table-row {
+           grid-template-columns: 1fr 3.5fr; // Increased relative width for Task Name column
+           justify-content: space-around; // Distribute items within the row
+         }
+      }
+    } // This closes .list-table
+    }
+  }
+}
+
+// Responsive Styles
+@media screen and (max-width: 1024px) {
+  .client-detail-page {
+    padding: 20px;
+
+    .client-header {
+      padding: 20px;
+      margin-bottom: 20px;
+
+      .client-info-top {
+        margin-bottom: 20px;
+        .client-avatar-section {
+          .client-avatar {
+            width: 80px;
+            height: 80px;
+            margin-right: 20px;
+          }
+          .client-id-name {
+            .client-id-number {
+              font-size: 18px;
+            }
+            h1 {
+              font-size: 28px;
+            }
+            p {
+              font-size: 18px;
+            }
+          }
+        }
+        .view-more-info-btn {
+          padding: 12px 24px;
+          font-size: 16px;
+        }
+      }
+      .client-contact-info {
+        gap: 15px;
+        .contact-item {
+          font-size: 16px;
+        }
+      }
+    }
+
+    .client-actions {
+      gap: 20px;
+      margin-bottom: 30px;
+      .action-btn {
+        padding: 15px 25px;
+        font-size: 18px;
+      }
+    }
+
+    .lists-container {
+      gap: 30px;
+      .operation-list-section,
+      .task-list-section {
+        padding: 20px;
+        max-height: 450px; // Slightly reduced max-height for tablets
+        .list-header {
+          margin-bottom: 20px;
+          h2 {
+            font-size: 22px;
+          }
+          .legend {
+            font-size: 14px;
+            .legend-item {
+              width: 14px;
+              height: 14px;
+            }
+          }
+        }
+        .list-table {
+          .table-header,
+          .table-row {
+            padding: 14px 0;
+            padding-left: 12px;
+            column-gap: 15px;
+            span {
+              font-size: 16px;
+            }
+          }
+          .table-header span {
+            font-size: 17px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .client-detail-page {
+    padding: 15px;
+
+    .client-header {
+      padding: 15px;
+      .client-info-top {
+        flex-direction: column; // Stack avatar and button
+        align-items: center; // Center items when stacked
+        .client-avatar-section {
+          margin-bottom: 15px; // Add space when stacked
+        }
+        .view-more-info-btn {
+          width: 100%; // Make button full width
+          text-align: center;
+        }
+      }
+      .client-contact-info {
+        grid-template-columns: 1fr; // Stack contact items
+      }
+    }
+
+    .client-actions {
+      flex-direction: column; // Stack action buttons
+      .action-btn {
+        width: 100%;
+      }
+    }
+
+    .lists-container {
+      grid-template-columns: 1fr; // Stack lists
+      gap: 25px;
+      .operation-list-section,
+      .task-list-section {
+        max-height: 400px; // Further reduced max-height
+        .list-header h2 {
+          font-size: 20px;
+        }
+        .list-table {
+          .table-header,
+          .table-row {
+            padding: 12px 0;
+            padding-left: 10px;
+            column-gap: 10px;
+            span {
+              font-size: 15px;
+            }
+          }
+          .table-header span {
+            font-size: 16px;
+          }
+          // Adjust column fr units if needed for smaller screens
+          &.operation-table {
+            .table-header, .table-row {
+              grid-template-columns: 1fr 1.5fr 1fr; // Example adjustment
+            }
+          }
+          &.task-table {
+             .table-header, .table-row {
+               grid-template-columns: 1fr 2fr; // Example adjustment
+             }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .client-detail-page {
+    padding: 10px;
+
+    .client-header {
+      padding: 10px;
+      .client-info-top {
+        .client-avatar-section {
+          .client-avatar {
+            width: 60px;
+            height: 60px;
+            margin-right: 15px;
+          }
+          .client-id-name {
+            .client-id-number {
+              font-size: 16px;
+            }
+            h1 {
+              font-size: 22px;
+            }
+            p {
+              font-size: 15px;
+            }
+          }
+        }
+        .view-more-info-btn {
+          padding: 10px 20px;
+          font-size: 14px;
+        }
+      }
+    }
+
+    .client-actions .action-btn {
+      padding: 12px 20px;
+      font-size: 16px;
+    }
+
+    .lists-container {
+      .operation-list-section,
+      .task-list-section {
+        padding: 15px;
+        max-height: 350px;
+        .list-header {
+          flex-direction: column; // Stack header items
+          align-items: flex-start;
+          gap: 10px;
+          h2 {
+            font-size: 18px;
+          }
+          .legend {
+            font-size: 12px;
+            .legend-item {
+              width: 12px;
+              height: 12px;
+            }
+          }
+        }
+        .list-table {
+          .table-header,
+          .table-row {
+            padding: 10px 0;
+            padding-left: 8px;
+            column-gap: 8px;
+            span {
+              font-size: 14px;
+            }
+          }
+          .table-header span {
+            font-size: 15px;
+          }
+          // Ensure table rows are still readable
+          &.operation-table {
+            .table-header, .table-row {
+              // Consider making text smaller or wrapping if content is too wide
+              grid-template-columns: 0.8fr 1.2fr 1fr;
+            }
+          }
+          &.task-table {
+             .table-header, .table-row {
+               grid-template-columns: 0.8fr 1.5fr;
+             }
+          }
+        }
+      }
+    }
+  }
+}
+
+.gaptask{
+  padding-bottom: 25px;
+}

@@ -1,0 +1,548 @@
+.employee-detail-page {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+  font-family: 'Satoshi', sans-serif;
+  background-color: white;
+
+  .employee-header-section { // Renamed from .client-header
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    // background-color: #f8f9fa; // Optional: if you want a light bg for this section
+
+    .employee-info-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start; // Align items to the start for button positioning
+      margin-bottom: 30px;
+
+      .employee-avatar-section {
+        display: flex;
+        align-items: center;
+
+        .employee-avatar {
+          width: 100px;
+          height: 100px;
+          background-color: #ced4da; // Placeholder gray for avatar
+          border-radius: 50%;
+          margin-right: 30px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          // Add <img> tag inside JSX if using actual images
+        }
+
+        .employee-name-contact {
+          h1 {
+            margin: 0 0 10px 0;
+            font-size: 32px;
+            font-weight: 600;
+          }
+          .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 5px;
+            font-size: 16px; // Adjusted from client detail
+            color: #495057;
+            svg {
+              color: #6c757d;
+            }
+          }
+        }
+      }
+
+      .view-more-info-btn {
+        background-color: #ff6f00;
+        color: white;
+        border: none;
+        padding: 14px 28px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: 500;
+        align-self: flex-start; // Keep button at the top of its flex container
+        &:hover {
+          background-color: #e66000;
+        }
+      }
+    }
+  }
+
+  .employee-stats-kpi-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr; // For features grid and KPI
+    gap: 30px;
+    margin-bottom: 40px;
+
+    .employee-features-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+
+      .feature-box {
+        background-color: #f8f9fa; // Light background for feature boxes
+        padding: 20px;
+        border-radius: 8px;
+        text-align: left; // Align text to left as per image
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        h2 {
+          font-size: 28px; // Large stat value
+          font-weight: 600;
+          margin: 0 0 5px 0;
+          color: #212529;
+        }
+        p {
+          font-size: 14px;
+          color: #6c757d;
+          margin: 0;
+        }
+      }
+    }
+
+    .employee-kpi-section {
+      background-color: #0a1931; // Dark blue background for KPI
+      padding: 25px;
+      border-radius: 12px;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center; // Center KPI content
+      justify-content: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+
+
+      h3 {
+        font-size: 18px;
+        font-weight: 500;
+        margin: 0 0 20px 0;
+        align-self: flex-start; // Align "KPI" title to the left
+      }
+
+      .kpi-gauge-container {
+        width: 100%;
+        max-width: 300px; // Max width for the gauge
+        aspect-ratio: 2 / 1.2; // Maintain aspect ratio for semi-circle
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .kpi-gauge {
+        width: 100%;
+        height: 100%; // Takes height of container (controlled by aspect-ratio)
+        border-radius: 150px 150px 0 0; // Makes it a semi-circle
+        background-color: #182848; // Slightly lighter track for the gauge
+        position: relative;
+        overflow: hidden; // Clip the progress bar
+        display: flex;
+        align-items: flex-end; // Align progress from bottom
+        justify-content: center;
+
+
+        .kpi-progress {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          border-radius: 150px 150px 0 0;
+          background: conic-gradient(
+            #f900ff 0%, // Magenta
+            #6d00f7 var(--progress-value, 0%), // Purple at progress value
+            transparent var(--progress-value, 0%), // Transparent after progress
+            transparent 100%
+          );
+          transform: rotate(-90deg); // Start from the left
+          transform-origin: bottom center;
+        }
+        
+        .kpi-value {
+          font-size: 48px; // Large KPI percentage
+          font-weight: bold;
+          color: white;
+          position: relative; // To be above the progress
+          z-index: 2;
+          margin-bottom: 10%; // Adjust to position it nicely within the arc
+        }
+        .kpi-target-marker {
+            position: absolute;
+            bottom: calc(50% + 50px); // Adjust to position correctly along the arc
+            right: 10px; // Example positioning
+            color: #adb5bd;
+            font-size: 14px;
+            // More complex positioning would require JS or more intricate CSS for arc placement
+            // This is a simplified marker
+             transform: rotate(45deg); // Approximate rotation based on image
+        }
+      }
+    }
+  }
+
+
+  // Re-using list styles from clientDetail, ensure class names match if copying directly
+  // Or scope them under .employee-detail-page if they are unique
+  .lists-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+
+    .operation-list-section,
+    .task-list-section {
+      background-color: #fff;
+      padding: 50px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-height: 500px;
+      overflow-y: auto;
+    
+      .list-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+     
+        
+        h2 {
+          margin: 0;
+          font-size: 26px;
+          font-weight: 600;
+        }
+        .legend {
+          font-size: 16px;
+          color: #6c757d;
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          .legend-item {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            vertical-align: middle;
+            border-radius: 3px;
+            &.complete-legend {
+              background-color: #0056ff;
+            }
+            &.incomplete-legend {
+              background-color: #a0c4ff;
+            }
+          }
+        }
+      }
+
+      .list-table {
+        
+        .table-header,
+        .table-row {
+          display: grid;
+          padding: 18px 0;
+          padding-left: 15px;
+          border-bottom: 1px solid #e9ecef;
+          align-items: center;
+          column-gap: 60px;
+             display: flex;
+        justify-content: space-between;
+
+          span {
+            font-size: 18px;
+          }
+        }
+
+        .table-header {
+          font-weight: 600;
+          color: #495057;
+          border-bottom-width: 2px;
+          background-color: #f8f9fa;
+          span {
+            font-size: 19px;
+          }
+        }
+
+        .table-row {
+          &:last-child {
+            // border-bottom: none;
+          }
+          &.complete-row {
+            border-left: 5px solid #0056ff;
+          }
+          &.incomplete-row {
+            border-left: 5px solid #a0c4ff;
+          }
+           &:not(:last-child) {
+             border-bottom: 1px solid #eee;
+           }
+        }
+      // Specific column widths
+      &.operation-table {
+        .table-header, .table-row {
+          grid-template-columns: 1.2fr 2fr 1.5fr;
+        }
+      }
+      &.task-table {
+         .table-header, .table-row {
+           grid-template-columns: 1fr 3.5fr;
+           justify-content: space-around; // As per previous request for task list
+         }
+      }
+    }
+    }
+  }
+}
+
+// Responsive Styles (copied and adapted from clientDetail.scss)
+@media screen and (max-width: 1024px) {
+  .employee-detail-page {
+    padding: 20px;
+
+    .employee-header-section {
+      padding: 20px;
+      margin-bottom: 20px;
+
+      .employee-info-top {
+        margin-bottom: 20px;
+        .employee-avatar-section {
+          .employee-avatar {
+            width: 80px;
+            height: 80px;
+            margin-right: 20px;
+          }
+          .employee-name-contact {
+            h1 {
+              font-size: 28px;
+            }
+            .contact-item {
+              font-size: 15px;
+            }
+          }
+        }
+        .view-more-info-btn {
+          padding: 12px 24px;
+          font-size: 16px;
+        }
+      }
+    }
+
+    .employee-stats-kpi-section {
+      grid-template-columns: 1fr; // Stack features and KPI on tablets
+      gap: 25px;
+      .employee-features-grid {
+        gap: 15px;
+        .feature-box {
+          padding: 15px;
+          h2 { font-size: 24px; }
+          p { font-size: 13px; }
+        }
+      }
+      .employee-kpi-section {
+        padding: 20px;
+        .kpi-gauge-container { max-width: 250px; }
+        .kpi-gauge .kpi-value { font-size: 40px; }
+      }
+    }
+
+
+    .lists-container {
+      gap: 30px;
+      .operation-list-section,
+      .task-list-section {
+        padding: 20px;
+        max-height: 450px;
+        .list-header {
+          margin-bottom: 20px;
+          h2 {
+            font-size: 22px;
+          }
+          .legend {
+            font-size: 14px;
+            .legend-item {
+              width: 14px;
+              height: 14px;
+            }
+          }
+        }
+        .list-table {
+          .table-header,
+          .table-row {
+            padding: 14px 0;
+            padding-left: 12px;
+            column-gap: 15px;
+            span {
+              font-size: 16px;
+            }
+          }
+          .table-header span {
+            font-size: 17px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .employee-detail-page {
+    padding: 15px;
+
+    .employee-header-section {
+      padding: 15px;
+      .employee-info-top {
+        flex-direction: column; 
+        align-items: center; 
+        .employee-avatar-section {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          margin-bottom: 15px; 
+          .employee-name-contact {
+            align-items: center;
+            .contact-item { justify-content: center; }
+          }
+        }
+        .view-more-info-btn {
+          width: 100%; 
+          text-align: center;
+        }
+      }
+    }
+    
+    .employee-stats-kpi-section {
+        .employee-features-grid {
+            grid-template-columns: 1fr; // Stack feature boxes too
+        }
+    }
+
+
+    .lists-container {
+      // grid-template-columns: 1fr;
+      gap: 25px;
+      .operation-list-section,
+      .task-list-section {
+        max-height: 400px; 
+        .list-header h2 {
+          font-size: 20px;
+        }
+        .list-table {
+          .table-header,
+          .table-row {
+            padding: 12px 0;
+            padding-left: 10px;
+            column-gap: 10px;
+            span {
+              font-size: 15px;
+            }
+          }
+          .table-header span {
+            font-size: 16px;
+          }
+          &.operation-table {
+            .table-header, .table-row {
+              grid-template-columns: 1fr 1.5fr 1fr; 
+            }
+          }
+          &.task-table {
+             .table-header, .table-row {
+               grid-template-columns: 1fr 2fr; 
+             }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .employee-detail-page {
+    padding: 10px;
+
+    .employee-header-section {
+      padding: 10px;
+      .employee-info-top {
+        .employee-avatar-section {
+          .employee-avatar {
+            width: 70px; // Smaller avatar
+            height: 70px;
+            margin-right: 0; // No margin if centered
+            margin-bottom: 10px;
+          }
+          .employee-name-contact {
+            h1 { font-size: 24px; }
+            .contact-item { font-size: 14px; }
+          }
+        }
+        .view-more-info-btn {
+          padding: 10px 20px;
+          font-size: 14px;
+        }
+      }
+    }
+    
+    .employee-stats-kpi-section {
+        .employee-features-grid .feature-box {
+            padding: 12px;
+             h2 { font-size: 20px; }
+             p { font-size: 12px; }
+        }
+        .employee-kpi-section {
+            padding: 15px;
+            .kpi-gauge-container { max-width: 200px; }
+            .kpi-gauge .kpi-value { font-size: 32px; }
+        }
+    }
+
+
+    .lists-container {
+      .operation-list-section,
+      .task-list-section {
+        padding: 15px;
+        max-height: 350px;
+        .list-header {
+          flex-direction: column; 
+          align-items: flex-start;
+          gap: 10px;
+          h2 {
+            font-size: 18px;
+          }
+          .legend {
+            font-size: 12px;
+            .legend-item {
+              width: 12px;
+              height: 12px;
+            }
+          }
+        }
+        .list-table {
+          .table-header,
+          .table-row {
+            padding: 10px 0;
+            padding-left: 8px;
+            column-gap: 8px;
+            span {
+              font-size: 14px;
+            }
+          }
+          .table-header span {
+            font-size: 15px;
+          }
+          &.operation-table {
+            .table-header, .table-row {
+              grid-template-columns: 0.8fr 1.2fr 1fr;
+            }
+          }
+          &.task-table {
+             .table-header, .table-row {
+               grid-template-columns: 0.8fr 1.5fr;
+             }
+          }
+        }
+      }
+    }
+  }
+}
+
+// .gaptask class from clientDetail.scss, if needed for EmployeeDetail.jsx
+.gaptask{
+  padding-bottom: 25px;
+}

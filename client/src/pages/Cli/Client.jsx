@@ -3,6 +3,9 @@ import React, { useState } from 'react'
 import './cli.scss'
 import { FaBell } from 'react-icons/fa'
 import { IoSearch } from "react-icons/io5";
+import * as XLSX from 'xlsx';
+import { saveAs } from 'file-saver';
+
 const dummyClients = [
   { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: false },
   { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: false },
@@ -33,17 +36,26 @@ const dummyClients = [
 ];
 
 const downloadExcel = () => {
-  const csv = [
+  const worksheetData = [
     ['Code', 'Name', 'Country', 'City', 'Last Sent', 'Active'],
-    ...dummyClients.map(c => [c.code, c.name, c.country, c.city, c.lastSent, c.active ? 'Active' : 'Deactive'])
-  ].map(row => row.join(",")).join("\n");
-  const blob = new Blob([csv], { type: 'text/csv' });
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = 'clients.csv';
-  a.click();
-  URL.revokeObjectURL(url);
+    ...dummyClients.map(c => [
+      c.code,
+      c.name,
+      c.country,
+      c.city,
+      c.lastSent,
+      c.active ? 'Active' : 'Deactive'
+    ])
+  ];
+
+  const worksheet = XLSX.utils.aoa_to_sheet(worksheetData);
+  const workbook = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(workbook, worksheet, 'Clients');
+
+  const excelBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
+  const data = new Blob([excelBuffer], { type: 'application/octet-stream' });
+
+  saveAs(data, 'clients.xlsx');
 };
 
 const Client = () => {

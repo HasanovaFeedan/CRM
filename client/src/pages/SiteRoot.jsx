@@ -21,46 +21,44 @@ const menuItems = [
 const SiteRoot = () => {
   const location = useLocation();
   const [collapsed, setCollapsed] = useState(false);
-  const showSidebar = location.pathname === '/' || location.pathname === '/tasks' || location.pathname === '/clients' ||location.pathname === '/employees';
-  const bgClass = showSidebar ? 'dashboard-bg' : 'other-bg';
+  const bgClass = 'dashboard-bg'; // Tüm sayfalar için aynı arka plan sınıfı uygulanıyor
 
   return (
     <div className={bgClass}>
-      {showSidebar && (
-        <aside className={`sidebar${collapsed ? ' collapsed' : ''}`}>
-          <div className="sidebar-logo">
-            <img className='img-png' src="/image/logoimg.png" alt="Logo" />
-          </div>
-          <nav className="sidebar-menu">
-            {menuItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`menu-item${location.pathname === item.path ? ' active' : ''}${collapsed ? ' collapsed' : ''}`}
-              >
-                {item.icon}
-                {!collapsed && <span>{item.label}</span>}
-              </Link>
-            ))}
-          </nav>
-          <button className="sidebar-toggle" onClick={() => setCollapsed(!collapsed)}>
-            {collapsed ? <FaChevronRight /> : <FaChevronLeft />}
-          </button>
-          {!collapsed ? (
-            <>
-              <hr className="sidebar-hr" />
-              <div className="sidebar-user">
-                <span>Namiq Rzayev</span>
-                <span className="user-role">Director</span>
-              </div>
-            </>
-          ) : (
+      <aside className={`sidebar${collapsed ? ' collapsed' : ''}`}>
+        <div className="sidebar-logo">
+          <img className="img-png" src="/image/logoimg.png" alt="Logo" />
+        </div>
+        <nav className="sidebar-menu">
+          {menuItems.map((item) => (
+            <Link
+              key={item.path}
+              to={item.path}
+              className={`menu-item${location.pathname === item.path ? ' active' : ''}${collapsed ? ' collapsed' : ''}`}
+            >
+              {item.icon}
+              {!collapsed && <span>{item.label}</span>}
+            </Link>
+          ))}
+        </nav>
+        <button className="sidebar-toggle" onClick={() => setCollapsed(!collapsed)}>
+          {collapsed ? <FaChevronRight /> : <FaChevronLeft />}
+        </button>
+        {!collapsed ? (
+          <>
+            <hr className="sidebar-hr" />
             <div className="sidebar-user">
-              <div className="user-avatar"></div>
+              <span>Namiq Rzayev</span>
+              <span className="user-role">Director</span>
             </div>
-          )}
-        </aside>
-      )}
+          </>
+        ) : (
+          <div className="sidebar-user">
+            <div className="user-avatar"></div>
+          </div>
+        )}
+      </aside>
+
       <main className="dashboard-content">
         <Outlet />
       </main>

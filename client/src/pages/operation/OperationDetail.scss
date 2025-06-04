@@ -1,0 +1,736 @@
+.dashboard-main-box {
+  .operation-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .operation-header .breadcrumb {
+    font-size: 1.1em;
+    color: #555;
+  }
+
+  .operation-header .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .operation-header .header-actions .search-bar {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 5px 10px;
+  }
+
+  .operation-header .header-actions .search-bar input {
+    border: none;
+    outline: none;
+    margin-right: 5px;
+    font-size: 0.9em;
+  }
+
+  .operation-header .header-actions .search-bar .search-icon {
+    color: #777;
+  }
+
+  .operation-header .header-actions button {
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .operation-header .header-actions button.excel-button {
+    background-color: #28a745;
+    color: white;
+  }
+
+  .operation-header .header-actions button.quote-button {
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc;
+  }
+
+  .operation-header .header-actions .document-dropdown {
+    position: relative;
+  }
+
+  .sub-header-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 15px;
+  }
+
+  .sub-header-controls .flight-info-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #fff1d7;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 1px solid #ffe0b2;
+    color: #ff8f00;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  .sub-header-controls .flight-info-bar .flight-icon {
+    font-size: 1.2em;
+  }
+
+  .sub-header-controls .flight-info-bar .flight-number {
+    font-weight: bold;
+  }
+
+  .sub-header-controls .sub-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .sub-header-controls .sub-header-actions button {
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .sub-header-controls .sub-header-actions button.quote-button {
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ccc;
+  }
+
+  .sub-header-controls .sub-header-actions .document-dropdown {
+    position: relative;
+  }
+
+  .sub-header-controls .sub-header-actions .document-dropdown .add-document-button {
+    background-color: #000000;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9em;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .sub-header-controls .sub-header-actions .document-dropdown .add-document-button .dropdown-arrow {
+    margin-left: 5px;
+  }
+
+  .operation-main-content {
+    display: grid;
+    grid-template-columns: 1.2fr 1.5fr 0.8fr;
+    gap: 20px;
+  }
+
+  .operation-main-content .info-section {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    border: 1px solid #e8eaf6;
+  }
+
+  .operation-main-content .info-section h2 {
+    font-size: 1.1em;
+    color: #333;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    font-weight: 600;
+  }
+
+  .operation-main-content .info-section .info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+
+  .operation-main-content .info-section .info-grid .info-item {
+    background: rgba(244, 247, 255, 1);
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+    border: 1px solid #eee;
+  }
+
+  .operation-main-content .info-section .info-grid .info-item .value {
+    display: block;
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+  }
+
+  .operation-main-content .info-section .info-grid .info-item .label {
+    font-size: 0.8em;
+    color: #666;
+  }
+
+  .operation-main-content .info-section.cargo-info .cargo-content-wrapper {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+  }
+
+  .operation-main-content .info-section.cargo-info .cargo-content-wrapper .shipment-details {
+    flex: 1.8;
+  }
+
+  .operation-main-content .info-section.cargo-info .cargo-content-wrapper .shipment-details h4 {
+    font-size: 0.9em;
+    color: #007bff;
+    margin-bottom: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .operation-main-content .info-section.cargo-info .cargo-content-wrapper .master-details {
+    flex: 1;
+    padding-top: 0;
+  }
+
+  .operation-main-content .info-section.cargo-info .cargo-content-wrapper .master-details h3 {
+    font-size: 0.9em;
+    color: #007bff;
+    margin-bottom: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .operation-main-content .info-section.cargo-info .cargo-content-wrapper .master-details p {
+    font-size: 0.85em;
+    color: #555;
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  .operation-main-content .info-section.money-info .info-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .operation-main-content .info-section.money-info .summary-values {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+  }
+
+  .operation-main-content .info-section.money-info .summary-values .summary-item {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #222;
+    background-color: #fdfdfd;
+    padding: 10px 15px;
+    border-radius: 4px;
+    border: 1px solid #eee;
+    min-width: 150px;
+    text-align: center;
+  }
+
+  .operation-main-content .info-section.money-info .summary-values .summary-item .currency {
+    font-size: 0.75em;
+    color: #666;
+    margin-left: 4px;
+  }
+
+  .operation-main-content .info-section.document-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .operation-main-content .info-section.document-list ul li {
+    padding: 8px 0;
+    border-bottom: 1px dashed #eee;
+    font-size: 0.9em;
+    color: #5a5a5a;
+    cursor: pointer;
+  }
+
+  .operation-main-content .info-section.document-list ul li:last-child {
+    border-bottom: none;
+  }
+
+  .operation-main-content .info-section.document-list ul li:hover {
+    text-decoration: underline;
+  }
+
+  .additional-info-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .additional-info-cards .info-card {
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #d0d9f0;
+    background: rgba(247, 247, 247, 1);
+  }
+
+  .additional-info-cards .info-card h3 {
+    font-size: 1em;
+    color: #003366;
+    margin-bottom: 15px;
+  }
+
+  .additional-info-cards .info-card p {
+    font-size: 0.9em;
+    color: #334e68;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .additional-info-cards .info-card .customer-button {
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.85em;
+    margin-top: 10px;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+  }
+
+  .additional-info-cards .info-card .customer-button.outlined {
+    background-color: transparent;
+    color: #4a90e2;
+    border: 1px solid #4a90e2;
+  }
+
+  .notes-section {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    border: 1px solid #e8eaf6;
+  }
+
+  .notes-section h2 {
+    font-size: 1.1em;
+    color: #333;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    font-weight: 600;
+  }
+
+  .notes-section textarea {
+    width: 100%;
+    min-height: 80px;
+    border: 1px solid #ccc;
+    background: rgba(247, 247, 247, 1);
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 0.9em;
+    box-sizing: border-box;
+    resize: vertical;
+  }
+
+  .notes-section textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+  }
+}
+
+.white-sec {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-left: 2%;
+  padding-right: 2%;
+  padding-top: 2%;
+}
+
+/* TABLET RESPONSIVE STYLES (768px - 1024px) */
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  .dashboard-main-box .operation-header {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+
+  .dashboard-main-box .operation-header .header-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .dashboard-main-box .operation-header .header-actions .search-bar {
+    flex: 1;
+    max-width: 300px;
+  }
+
+  .dashboard-main-box .sub-header-controls {
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+  }
+
+  .dashboard-main-box .sub-header-controls .flight-info-bar {
+    justify-content: center;
+  }
+
+  .dashboard-main-box .sub-header-controls .sub-header-actions {
+    justify-content: center;
+  }
+
+  .dashboard-main-box .operation-main-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+
+  .dashboard-main-box .operation-main-content .info-section:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .dashboard-main-box .operation-main-content .info-section.cargo-info .cargo-content-wrapper {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .dashboard-main-box .operation-main-content .info-section.money-info .info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-main-box .operation-main-content .info-section.money-info .summary-values {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .dashboard-main-box .operation-main-content .info-section.money-info .summary-values .summary-item {
+    min-width: auto;
+  }
+
+  .dashboard-main-box .additional-info-cards {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .white-sec {
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+}
+
+/* MOBILE RESPONSIVE STYLES (max-width: 767px) */
+@media screen and (max-width: 767px) {
+  .dashboard-main-box .operation-header {
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+  }
+
+  .dashboard-main-box .operation-header .breadcrumb {
+    font-size: 1em;
+    text-align: center;
+  }
+
+  .dashboard-main-box .operation-header .header-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .dashboard-main-box .operation-header .header-actions .search-bar {
+    width: 100%;
+  }
+
+  .dashboard-main-box .operation-header .header-actions .search-bar input {
+    width: 100%;
+  }
+
+  .dashboard-main-box .operation-header .header-actions button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .dashboard-main-box .sub-header-controls {
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+  }
+
+  .dashboard-main-box .sub-header-controls .flight-info-bar {
+    justify-content: center;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .dashboard-main-box .sub-header-controls .sub-header-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .dashboard-main-box .sub-header-controls .sub-header-actions button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .dashboard-main-box .operation-main-content {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .dashboard-main-box .operation-main-content .info-section {
+    padding: 15px;
+  }
+
+  .dashboard-main-box .operation-main-content .info-section .info-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .dashboard-main-box .operation-main-content .info-section .info-grid .info-item .value {
+    font-size: 1.2em;
+  }
+
+  .dashboard-main-box .operation-main-content .info-section.cargo-info .cargo-content-wrapper {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .dashboard-main-box .operation-main-content .info-section.money-info .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-main-box .operation-main-content .info-section.money-info .summary-values {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+    padding-top: 15px;
+  }
+
+  .dashboard-main-box .operation-main-content .info-section.money-info .summary-values .summary-item {
+    min-width: auto;
+    font-size: 1.1em;
+  }
+
+  .dashboard-main-box .additional-info-cards {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .dashboard-main-box .additional-info-cards .info-card {
+    padding: 15px;
+  }
+
+  .dashboard-main-box .notes-section {
+    padding: 15px;
+  }
+
+  .dashboard-main-box .notes-section textarea {
+    min-height: 100px;
+  }
+
+  .white-sec {
+    padding-left: 4%;
+    padding-right: 4%;
+    gap: 15px;
+  }
+}
+
+/* SMALL MOBILE RESPONSIVE STYLES (max-width: 480px) */
+@media screen and (max-width: 480px) {
+  .dashboard-main-box .operation-header .header-actions button {
+    padding: 6px 12px;
+    font-size: 0.8em;
+  }
+
+  .dashboard-main-box .sub-header-controls .sub-header-actions button {
+    padding: 6px 12px;
+    font-size: 0.8em;
+  }
+
+  .dashboard-main-box .operation-main-content .info-section {
+    padding: 12px;
+  }
+
+  .dashboard-main-box .operation-main-content .info-section h2 {
+    font-size: 1em;
+  }
+
+  .dashboard-main-box .operation-main-content .info-section .info-grid .info-item {
+    padding: 8px;
+  }
+
+  .dashboard-main-box .operation-main-content .info-section .info-grid .info-item .value {
+    font-size: 1.1em;
+  }
+
+  .dashboard-main-box .operation-main-content .info-section .info-grid .info-item .label {
+    font-size: 0.75em;
+  }
+
+  .dashboard-main-box .additional-info-cards .info-card {
+    padding: 12px;
+  }
+
+  .dashboard-main-box .additional-info-cards .info-card h3 {
+    font-size: 0.9em;
+  }
+
+  .dashboard-main-box .additional-info-cards .info-card p {
+    font-size: 0.8em;
+  }
+
+  .dashboard-main-box .notes-section {
+    padding: 12px;
+  }
+
+  .white-sec {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+}/* Base Styles - Mevcut stilleriniz aynen kalacak */
+.dashboard-main-box {
+  /* Mevcut stilleriniz burada... */
+}
+
+/* TABLET RESPONSIVE (768px - 1024px) */
+@media (max-width: 1024px) {
+  .dashboard-main-box {
+    .operation-header {
+      flex-direction: column;
+      gap: 15px;
+      
+      .header-actions {
+        width: 100%;
+        justify-content: space-between;
+        
+        .search-bar {
+          flex: 1;
+          max-width: 300px;
+        }
+      }
+    }
+
+    .sub-header-controls {
+      flex-direction: column;
+      gap: 15px;
+      
+      .flight-info-bar {
+        justify-content: center;
+      }
+    }
+
+    .operation-main-content {
+      grid-template-columns: 1fr 1fr; // 3 kolon yerine 2 kolon
+      
+      .info-section:last-child {
+        grid-column: 1 / -1; // Son element tam genişlik
+      }
+      
+      &.cargo-info .cargo-content-wrapper {
+        flex-direction: column;
+        gap: 20px;
+      }
+      
+      &.money-info {
+        .info-grid {
+          grid-template-columns: repeat(2, 1fr); // 3 yerine 2 kolon
+        }
+        
+        .summary-values {
+          flex-direction: column;
+          gap: 10px;
+        }
+      }
+    }
+
+    .additional-info-cards {
+      grid-template-columns: 1fr; // Tek kolon
+    }
+  }
+}
+
+/* MOBILE RESPONSIVE (max-width: 767px) */
+@media (max-width: 767px) {
+  .dashboard-main-box {
+    .operation-header {
+      .header-actions {
+        flex-direction: column;
+        gap: 10px;
+        
+        button {
+          width: 100%;
+          justify-content: center;
+        }
+      }
+    }
+
+    .sub-header-controls {
+      .sub-header-actions {
+        flex-direction: column;
+        gap: 8px;
+        
+        button {
+          width: 100%;
+        }
+      }
+    }
+
+    .operation-main-content {
+      grid-template-columns: 1fr; // Tek kolon
+      
+      .info-section {
+        padding: 15px;
+        
+        .info-grid {
+          grid-template-columns: 1fr; // Tek kolon
+        }
+        
+        &.money-info .info-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    }
+  }
+
+  .white-sec {
+    padding: 15px;
+  }
+}
+
+/* KÜÇÜK MOBILE (max-width: 480px) */
+@media (max-width: 480px) {
+  .dashboard-main-box {
+    .operation-main-content .info-section {
+      padding: 12px;
+      
+      .info-grid .info-item {
+        padding: 8px;
+        
+        .value {
+          font-size: 1.1em;
+        }
+      }
+    }
+  }
+}

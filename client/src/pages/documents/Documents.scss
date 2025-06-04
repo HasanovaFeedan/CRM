@@ -1,0 +1,115 @@
+.doc-wrappers {
+  width: 100%;
+  max-width: 100%;
+  padding: 20px;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+.doc-headers {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.btns {
+  padding: 8px 14px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.btns.sort {
+  background-color: #e5e7eb;
+  color: #374151;
+}
+
+.btns.add {
+  border: 1px solid #f97316;
+  background-color: white;
+  color: #f97316;
+}
+
+.btns.create {
+  background-color: #f97316;
+  color: white;
+}
+.table-containerss {
+  width: 100%;
+  overflow: hidden;
+}
+
+.table-rows {
+  display: flex;
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  height: 72px;
+  align-items: center;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  padding: 0 20px; /* daha geniş */
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+.table-heads {
+  font-weight: bold;
+  color: gray;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+
+  // Remove box-shadow for header row
+  box-shadow: none;
+  background-color: transparent; // Optional: if you want it to look different from regular rows
+}
+.table-bodys {
+  max-height: 936px; /* 13 satır × 72px */
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+/* Sütunları daha da genişletiyoruz */
+.cola.type {
+  flex: 3;
+  min-width: 420px;
+}
+
+.cola.name {
+  flex: 4;
+  min-width: 500px;
+}
+
+.cola.date {
+  flex: 2;
+  min-width: 260px;
+}
+
+
+.doc-pa{
+font-weight: bold;
+color: black;
+font-size: 20px;
+
+
+}
+
+.jus{
+    padding-top: 10px;
+}
+.gr{
+    width: 30px;
+    height: 30px;
+    border: none;
+    img{
+width: 15px;
+height: 15px;
+background-size: cover;
+    }
+}
