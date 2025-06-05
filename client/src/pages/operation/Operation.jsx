@@ -10,7 +10,8 @@ import Fade from "@mui/material/Fade";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
-
+import * as XLSX from "xlsx";
+import { saveAs } from "file-saver";
 const Operation = () => {
   const [filter, setFilter] = useState("All");
   const [sortAsc, setSortAsc] = useState(true);
@@ -26,7 +27,22 @@ const Operation = () => {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-  
+  // Dummy data for Excel
+const excelData = [
+  { Name: "John Doe", Age: 28, Department: "Sales" },
+  { Name: "Jane Smith", Age: 34, Department: "Marketing" },
+];
+
+const handleDownloadExcel = () => {
+  const worksheet = XLSX.utils.json_to_sheet(excelData);
+  const workbook = XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(workbook, worksheet, "Operations");
+
+  const excelBuffer = XLSX.write(workbook, { bookType: "xlsx", type: "array" });
+  const data = new Blob([excelBuffer], { type: "application/octet-stream" });
+
+  saveAs(data, "operations.xlsx");
+};
     const style = {
       position: "absolute",
       top: "50%",
@@ -100,24 +116,26 @@ const Operation = () => {
             <IoSearch className="sear" />
           </div>
 
-          <button
-            className="download-excell"
-            style={{
-              background: "rgba(16, 185, 129, 1)",
-              width: "183px",
-              height: "42px",
-              borderRadius: "20px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "8px",
-              border: "none",
-              cursor: "pointer",
-            }}
-          >
-            Download Excel
-            <img src="/image/download.png" alt="" style={{ height: "20px" }} />
-          </button>
+   <button
+  className="download-excell"
+  onClick={handleDownloadExcel}
+  style={{
+    background: "rgba(16, 185, 129, 1)",
+    width: "183px",
+    height: "42px",
+    borderRadius: "20px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    gap: "8px",
+    border: "none",
+    cursor: "pointer",
+  }}
+>
+  Download Excel
+  <img src="/image/download.png" alt="" style={{ height: "20px" }} />
+</button>
+
      <button className="new-opera"  onClick={handleOpen}>Create New Operation</button>
 
         </div>

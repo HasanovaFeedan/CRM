@@ -21,7 +21,7 @@ const menuItems = [
 const SiteRoot = () => {
   const location = useLocation();
   const [collapsed, setCollapsed] = useState(false);
-  const bgClass = 'dashboard-bg'; // Tüm sayfalar için aynı arka plan sınıfı uygulanıyor
+  const bgClass = 'dashboard-bg'; 
 
   return (
     <div className={bgClass}>
@@ -34,7 +34,10 @@ const SiteRoot = () => {
             <Link
               key={item.path}
               to={item.path}
-              className={`menu-item${location.pathname === item.path ? ' active' : ''}${collapsed ? ' collapsed' : ''}`}
+              className={`menu-item${
+                (item.path === '/' && location.pathname === '/') || (item.path !== '/' && location.pathname.startsWith(item.path)) 
+                ? ' active' : ''
+              }${collapsed ? ' collapsed' : ''}`}
             >
               {item.icon}
               {!collapsed && <span>{item.label}</span>}

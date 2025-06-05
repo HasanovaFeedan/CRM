@@ -67,15 +67,15 @@
 
   // Remove box-shadow for header row
   box-shadow: none;
-  background-color: transparent; // Optional: if you want it to look different from regular rows
+  background-color: transparent; 
 }
 .table-bodys {
-  max-height: 936px; /* 13 satır × 72px */
+  max-height: 750px; 
   overflow-y: auto;
   padding-right: 6px;
 }
 
-/* Sütunları daha da genişletiyoruz */
+
 .cola.type {
   flex: 3;
   min-width: 420px;
