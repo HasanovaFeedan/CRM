@@ -154,7 +154,7 @@ const Add = ({ isOpen, onClose }) => {
                   <button type="button">+ Add New</button>
                 </div>
                 <div className="direc-coment">
-                  <p className="doc">Documents</p>
+                  <p className="doc">Add Comment</p>
                   <div className='com-div'>
                     <input type="text" placeholder='Add comment' />
                   </div>

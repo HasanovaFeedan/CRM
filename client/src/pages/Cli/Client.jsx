@@ -66,7 +66,7 @@ const Client = () => {
 
   return (
     <div className="dashboard-main-box-client">
-      {/* Header */}
+   
       <div className="dashboard-header-client">
         <h2>Clients</h2>
         <div className="dashboard-header-right-client">
@@ -151,7 +151,7 @@ const Client = () => {
             ))}
           </div>
         </div>
-        {/* Right: Active Clients */}
+    
         <div className="active-clients-section">
           <div className="active-header">
             <h4>Active Clients</h4>

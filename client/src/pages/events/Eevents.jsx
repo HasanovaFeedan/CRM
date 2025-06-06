@@ -3,9 +3,12 @@ import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { IoSearch } from "react-icons/io5";
 import "./event.scss";
 import Calendar from "../../components/Calendar";
+import NewEventModal from "./EventsAdd";
+import * as XLSX from "xlsx";
+import { saveAs } from "file-saver";
 
 
-const EventRow = ({ status, date, time, history }) => {
+const EventRow = ({ status, date, time, history, clientPerson, employeeName }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [currentStatus, setCurrentStatus] = useState(status);
 
@@ -17,11 +20,9 @@ const EventRow = ({ status, date, time, history }) => {
   return (
     <div className="event-row">
       <div className="event-main">
-        
         <div>example</div>
-        
-        <div>Client Person</div>
-        <div>Employee Name</div>
+        <div>{clientPerson}</div>
+        <div>{employeeName}</div>
         <div>
           <select
             value={currentStatus}
@@ -40,7 +41,6 @@ const EventRow = ({ status, date, time, history }) => {
           </span>
         </div>
       </div>
-      
 
       {isOpen && (
         <div className="event-history">
@@ -68,40 +68,73 @@ const EventRow = ({ status, date, time, history }) => {
   );
 };
 
+// 👇 Ana bileşen
 const Eevents = () => {
   const [calendarMode, setCalendarMode] = useState("Monthly");
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-const events = Array.from({ length: 20 }, (_, i) => ({
-  id: i + 1,
-  eventType: `Event Type ${i + 1}`,
-  clientPerson: `Client ${i + 1}`,
-  employeeName: `Employee ${i + 1}`,
-  status: i % 2 === 0 ? "Pending" : "Done",
-  date: `0${(i % 9) + 1} / 06 / 2025`,
-  time: `${10 + i}:00`,
-  location: `Location ${i + 1}`,
-  priority: i % 3 === 0 ? "High" : i % 3 === 1 ? "Medium" : "Low",
-  category: `Category ${((i % 3) + 1)}`,
-  notes: `Some notes for event ${i + 1}`,
-  history: [
-    {
-      type: "Initial Contact",
-      date: `0${(i % 9) + 1} / 06 / 2025`,
-      time: "10:30",
-      result: "Win",
-    },
-    {
-      type: "Follow Up",
-      date: `1${(i % 9) + 1} / 06 / 2025`,
-      time: "11:00",
-      result: "Lost",
-    },
-  ],
-}));
+  const events = Array.from({ length: 20 }, (_, i) => ({
+    id: i + 1,
+    eventType: `Event Type ${i + 1}`,
+    clientPerson: `Client ${i + 1}`,
+    employeeName: `Employee ${i + 1}`,
+    status: i % 2 === 0 ? "Pending" : "Done",
+    date: `0${(i % 9) + 1} / 06 / 2025`,
+    time: `${10 + i}:00`,
+    location: `Location ${i + 1}`,
+    priority: i % 3 === 0 ? "High" : i % 3 === 1 ? "Medium" : "Low",
+    category: `Category ${((i % 3) + 1)}`,
+    notes: `Some notes for event ${i + 1}`,
+    history: [
+      {
+        type: "Initial Contact",
+        date: `0${(i % 9) + 1} / 06 / 2025`,
+        time: "10:30",
+        result: "Win",
+      },
+      {
+        type: "Follow Up",
+        date: `1${(i % 9) + 1} / 06 / 2025`,
+        time: "11:00",
+        result: "Lost",
+      },
+    ],
+  }));
 
+  // 👇 Excel indirme fonksiyonu burada tanımlı
+  const downloadExcel = () => {
+    const excelData = events.map((event) => ({
+      "Event Type": event.eventType,
+      "Client Person": event.clientPerson,
+      "Employee Name": event.employeeName,
+      "Status": event.status,
+      "Date": event.date,
+      "Time": event.time,
+      "Location": event.location,
+      "Priority": event.priority,
+      "Category": event.category,
+      "Notes": event.notes,
+    }));
+
+    const worksheet = XLSX.utils.json_to_sheet(excelData);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Events");
+
+    const excelBuffer = XLSX.write(workbook, {
+      bookType: "xlsx",
+      type: "array",
+    });
+
+    const file = new Blob([excelBuffer], {
+      type: "application/octet-stream",
+    });
+
+    saveAs(file, "events.xlsx");
+  };
 
   return (
     <div className="dashboard-main-box" style={{ background: "white" }}>
+      <NewEventModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       <div className="dashboard-header-client">
         <h2>Operation</h2>
         <div className="dashboard-header-right-client">
@@ -127,6 +160,7 @@ const events = Array.from({ length: 20 }, (_, i) => ({
 
           <button
             className="download-excell"
+            onClick={downloadExcel}
             style={{
               background: "rgba(16, 185, 129, 1)",
               width: "183px",
@@ -141,23 +175,18 @@ const events = Array.from({ length: 20 }, (_, i) => ({
             }}
           >
             Download Excel
-            <img
-              src="/image/download.png"
-              alt=""
-              style={{ height: "20px" }}
-            />
+            <img src="/image/download.png" alt="" style={{ height: "20px" }} />
           </button>
-          <button className="new-event">+ New event</button>
+
+          <button className="new-event" onClick={() => setIsModalOpen(true)}>
+            + New event
+          </button>
         </div>
       </div>
 
       <div className="container-drection">
         <div className="dashboard-container">
-          <img
-            className="background-image"
-            src="/image/newshipment.jpg"
-            alt="Background"
-          />
+          <img className="background-image" src="/image/newshipment.jpg" alt="Background" />
           <div className="background-overlayy"></div>
           <div className="content">
             <div className="stats-box total">
@@ -210,14 +239,12 @@ const events = Array.from({ length: 20 }, (_, i) => ({
             </div>
 
             <div className="event-header">
-           
               <div>Event type</div>
               <div>Client Person</div>
               <div>Employee Name</div>
               <div>Status</div>
               <div>Date</div>
               <div>Time</div>
-              
             </div>
 
             {events.map((event, index) => (
