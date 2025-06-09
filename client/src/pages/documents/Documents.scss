@@ -91,6 +91,65 @@
   min-width: 260px;
 }
 
+@media screen and (max-width: 1590px) {
+ .cola.type {
+  min-width:200px ;
+}
+
+.cola.name {
+  min-width: 300px ;
+}
+
+.cola.date {
+  min-width: 260px ;
+
+} 
+
+.dashboard-header{
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-search-button{
+  display: flex;
+  flex-direction: column;
+}
+.dashboard-header-right{
+  display: block;
+  flex-direction: column;
+}
+.jus{
+  width: fit-content;
+}
+}
+
+@media screen and (max-width: 1012px) {
+   .cola.type {
+  min-width:20px ;
+}
+
+.cola.name {
+  min-width: 30px ;
+}
+
+.cola.date {
+  min-width: 26px ;
+
+} 
+
+.doc-head{
+  display: flex;
+  flex-direction: column;
+}
+
+.doc-headers{
+  
+  display: flex;
+  flex-direction: column;
+
+}
+}
+
 
 .doc-pa{
 font-weight: bold;

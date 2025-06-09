@@ -79,7 +79,7 @@
     .employee-features-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+      gap: 10px;
 
       .feature-box {
         background-color: #f8f9fa; // Light background for feature boxes
@@ -122,7 +122,7 @@
 
       .kpi-gauge-container {
         width: 100%;
-        max-width: 300px; // Max width for the gauge
+        max-width: 200px; // Max width for the gauge
         aspect-ratio: 2 / 1.2; // Maintain aspect ratio for semi-circle
         position: relative;
         display: flex;

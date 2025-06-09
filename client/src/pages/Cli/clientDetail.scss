@@ -2,32 +2,32 @@
   
   display: flex;
   flex-direction: column;
-  padding: 30px; // Further increased padding
-  font-family: 'Satoshi', sans-serif; // Match Client.jsx font
+  padding: 30px; 
+  font-family: 'Satoshi', sans-serif; 
   background-color: white;
 
   .client-header {
     
-    padding: 30px; // Further increased padding
-    border-radius: 12px; // Further increased radius
-    margin-bottom: 30px; // Further increased margin
+    padding: 30px; 
+    border-radius: 12px; 
+    margin-bottom: 30px; 
 
     .client-info-top {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      margin-bottom: 30px; // Further increased margin
+      margin-bottom: 30px; 
 
       .client-avatar-section {
         display: flex;
         align-items: center;
 
         .client-avatar {
-          width: 100px; // Further increased size
-          height: 100px; // Further increased size
+          width: 100px; 
+          height: 100px; 
           background-color: #007bff;
           border-radius: 50%;
-          margin-right: 30px; // Further increased margin
+          margin-right: 30px; 
         }
 
         .client-id-name {
@@ -35,12 +35,12 @@
             color: #ff6f00;
             font-weight: bold;
             display: block;
-            margin-bottom: 8px; // Further increased margin
-            font-size: 20px; // Further increased font size
+            margin-bottom: 8px; 
+            font-size: 20px; 
           }
           h1 {
-            margin: 0 0 8px 0; // Further increased margin
-            font-size: 32px; // Further increased font size
+            margin: 0 0 8px 0; 
+            font-size: 32px; 
           }
           p {
             margin: 0;

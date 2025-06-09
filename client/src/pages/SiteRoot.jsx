@@ -23,6 +23,20 @@ const SiteRoot = () => {
   const [collapsed, setCollapsed] = useState(false);
   const bgClass = 'dashboard-bg'; 
 
+  
+  const isActive = (itemPath) => {
+    if (itemPath === '/') {
+      return location.pathname === '/';
+    }
+
+   
+    if (itemPath === '/operations') {
+      return location.pathname.startsWith('/operations') || location.pathname.startsWith('/operation/detail');
+    }
+
+    return location.pathname.startsWith(itemPath);
+  };
+
   return (
     <div className={bgClass}>
       <aside className={`sidebar${collapsed ? ' collapsed' : ''}`}>
@@ -34,10 +48,7 @@ const SiteRoot = () => {
             <Link
               key={item.path}
               to={item.path}
-              className={`menu-item${
-                (item.path === '/' && location.pathname === '/') || (item.path !== '/' && location.pathname.startsWith(item.path)) 
-                ? ' active' : ''
-              }${collapsed ? ' collapsed' : ''}`}
+              className={`menu-item${isActive(item.path) ? ' active' : ''}${collapsed ? ' collapsed' : ''}`}
             >
               {item.icon}
               {!collapsed && <span>{item.label}</span>}

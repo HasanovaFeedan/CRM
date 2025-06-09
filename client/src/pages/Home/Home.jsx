@@ -187,7 +187,7 @@ const Home = () => {
               }}
             >
               {" "}
-              <div style={{ position: "relative", width: 200, height: 200 }}>
+              <div style={{ position: "relative", width: 230, height: 200 }}>
                 <Stack width="100%" direction="row" flexWrap="wrap">
                   <PieChart
                     series={[
@@ -204,7 +204,11 @@ const Home = () => {
                     ]}
                     {...size}
                   >
-                    <PieCenterLabel>2548 Visitors</PieCenterLabel>
+              <PieCenterLabel>
+  <tspan fontSize="16">2548</tspan>
+  <tspan fontSize="15"> Visitors</tspan>
+</PieCenterLabel>
+
                   </PieChart>
                 </Stack>
               </div>

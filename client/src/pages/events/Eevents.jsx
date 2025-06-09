@@ -68,7 +68,7 @@ const EventRow = ({ status, date, time, history, clientPerson, employeeName }) =
   );
 };
 
-// 👇 Ana bileşen
+
 const Eevents = () => {
   const [calendarMode, setCalendarMode] = useState("Monthly");
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -101,7 +101,7 @@ const Eevents = () => {
     ],
   }));
 
-  // 👇 Excel indirme fonksiyonu burada tanımlı
+
   const downloadExcel = () => {
     const excelData = events.map((event) => ({
       "Event Type": event.eventType,
@@ -136,7 +136,7 @@ const Eevents = () => {
     <div className="dashboard-main-box" style={{ background: "white" }}>
       <NewEventModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       <div className="dashboard-header-client">
-        <h2>Operation</h2>
+        <h2>Events</h2>
         <div className="dashboard-header-right-client">
           <div className="search-containers">
             <input

@@ -171,4 +171,57 @@ img{
   &:hover{
     color: orangered;
   }
+} .event-div {
+  background-color: rgb(239, 239, 239);
+
+  width: 50%;
+  max-width: 100%; /* Maksimum ekran genişliğini aşmasın */
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 20px;
+  align-items: center;
+
+  overflow-x: auto; /* Yatay scroll açar küçülünce */
+  scrollbar-width: thin; /* Firefox için ince scrollbar */
+  -webkit-overflow-scrolling: touch; /* iOS'ta daha akıcı scroll */
+}
+
+/* Eğer içeriğin çok uzun olma ihtimali varsa dikey scroll da eklenebilir */
+.space-white {
+  width: 90%;
+  max-width: 100%;
+  display: flex;
+  gap: 20px;
+  background-color: white;
+  flex-direction: column;
+  border-radius: 20px;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  overflow-x: auto;
+}
+
+.space-event {
+  width: 90%;
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+
+  overflow-x: auto;
+}
+
+/* Responsive için medya sorgusu - çok küçük ekranlarda genişliği %100 yap */
+@media (max-width: 768px) {
+  .event-div {
+    width: 100%; /* Tam genişlik */
+  }
+
+  .space-white,
+  .space-event {
+    width: 100%;
+  }
 }

@@ -1,39 +1,34 @@
-
 import React, { useState } from 'react'
 import './cli.scss'
 import { FaBell } from 'react-icons/fa'
-import { IoSearch } from "react-icons/io5";
-import * as XLSX from 'xlsx';
-import { saveAs } from 'file-saver';
+import { IoSearch } from "react-icons/io5"
+import * as XLSX from 'xlsx'
+import { saveAs } from 'file-saver'
+import { useNavigate } from 'react-router-dom'
 
 const dummyClients = [
-  { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: false },
-  { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: false },
-  { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: true },
-  { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: false },
-  { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: true },
-  { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: true },
-  { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: true },
-  { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: false },
-  { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: false },
-  { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: true },
-  { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: true },
-  { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: true },
-  { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: true },
-  { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: true },
-  { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: true },
+  { code: '3456789988', name: 'Name2', country: 'Country2', city: 'City2', lastSent: 'Today', active: true },
+  { code: '3456789988', name: 'Name2', country: 'Country2', city: 'City2', lastSent: 'Today', active: true },
   { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: false },
   { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: false },
   { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: false },
   { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: false },
+  { code: '3456789988', name: 'Name2', country: 'Country2', city: 'City2', lastSent: 'Today', active: true },
+  { code: '3456789988', name: 'Name2', country: 'Country2', city: 'City2', lastSent: 'Today', active: true },
+  { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: false },
+  { code: '3456789988', name: 'Name2', country: 'Country2', city: 'City2', lastSent: 'Today', active: true },
   { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: false },
   { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: false },
+  { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: false },
+  { code: '3456789988', name: 'Name2', country: 'Country2', city: 'City2', lastSent: 'Today', active: true },
+  { code: '3456789988', name: 'Name2', country: 'Country2', city: 'City2', lastSent: 'Today', active: true },
+  { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: false },
+  { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: false },
+  { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: false },
+  { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: false },
+  { code: '3456789988', name: 'Name2', country: 'Country2', city: 'City2', lastSent: 'Today', active: true },
 
-  { code: '3456789987', name: 'Name', country: 'Country', city: 'City', lastSent: 'Today', active: true },
-
-
-
-];
+]
 
 const downloadExcel = () => {
   const worksheetData = [
@@ -46,27 +41,26 @@ const downloadExcel = () => {
       c.lastSent,
       c.active ? 'Active' : 'Deactive'
     ])
-  ];
+  ]
 
-  const worksheet = XLSX.utils.aoa_to_sheet(worksheetData);
-  const workbook = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(workbook, worksheet, 'Clients');
+  const worksheet = XLSX.utils.aoa_to_sheet(worksheetData)
+  const workbook = XLSX.utils.book_new()
+  XLSX.utils.book_append_sheet(workbook, worksheet, 'Clients')
 
-  const excelBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
-  const data = new Blob([excelBuffer], { type: 'application/octet-stream' });
-
-  saveAs(data, 'clients.xlsx');
-};
+  const excelBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' })
+  const data = new Blob([excelBuffer], { type: 'application/octet-stream' })
+  saveAs(data, 'clients.xlsx')
+}
 
 const Client = () => {
-  const [showModal, setShowModal] = useState(false);
-  const [activeTab, setActiveTab] = useState('active');
+  const [showModal, setShowModal] = useState(false)
+  const [activeTab, setActiveTab] = useState('active')
+  const navigate = useNavigate()
 
-  const activeClients = dummyClients.filter(c => c.active);
+  const activeClients = dummyClients.filter(c => c.active)
 
   return (
     <div className="dashboard-main-box-client">
-   
       <div className="dashboard-header-client">
         <h2>Clients</h2>
         <div className="dashboard-header-right-client">
@@ -87,9 +81,7 @@ const Client = () => {
                 borderRadius:"20px"
               }} 
             />
-           
-<IoSearch className='sear' />
-
+            <IoSearch className='sear' />
           </div>
           <button className="notification-badge"><FaBell /></button>
           <button
@@ -115,7 +107,6 @@ const Client = () => {
       </div>
    
       <div className="client-container">
-     
         <div className="client-list-section">
           <div className="client-list-header">
             <h3>Client List</h3>
@@ -132,6 +123,7 @@ const Client = () => {
               <button className="new-client-button" onClick={() => setShowModal(true)}>+ New client</button>
             </div>
           </div>
+
           <div className="client-table">
             <div className="table-header">
               <div>Code</div>
@@ -141,7 +133,12 @@ const Client = () => {
               <div>Last sent</div>
             </div>
             {dummyClients.map((client, idx) => (
-              <div className={`table-row ${client.active ? 'active-row' : 'deactive-row'}`} key={idx}>
+              <div 
+                className={`table-row ${client.active ? 'active-row' : 'deactive-row'}`} 
+                key={idx}
+                onClick={() => navigate(`/clients/detail/${client.code}`)}
+                style={{ cursor: 'pointer' }}
+              >
                 <div>{client.code}</div>
                 <div>{client.name}</div>
                 <div style={{ fontWeight: 600 }}>{client.country}</div>
@@ -165,7 +162,7 @@ const Client = () => {
             </div>
             {activeClients.map((client, idx) => (
               <div className="table-row" key={idx}>
-                <div>{client.code.slice(0,5)}</div>
+                <div>{client.code.slice(0, 5)}</div>
                 <div>{client.name}</div>
                 <div className="import-text">Import</div>
               </div>

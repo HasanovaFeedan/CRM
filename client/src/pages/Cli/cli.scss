@@ -138,7 +138,7 @@
       font-size: 15px;
     }
     .sort-btn, .new-client-btn {
-      width: 120px;
+      width: 10px;
       height: 36px;
       gap: 10px;
       border-radius: 4px;
@@ -440,6 +440,7 @@
   width: 100px;
   font-size: 13px;
   color: #222;
+ text-align: center;
 }
       .client-table {
         .table-header, .table-row {

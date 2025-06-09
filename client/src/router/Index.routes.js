@@ -26,7 +26,7 @@ import Task from "../pages/tasks/Task";
         element:<Operation/>,
         },
         {
-            path:"operations/detail", // Added route for OperationDetail
+            path:"/operation/detail/:id", 
             element: <OperationDetail/>
         },
             {
@@ -38,7 +38,8 @@ import Task from "../pages/tasks/Task";
         element:<Client/>,
         },
         {
-            path:"clients/detail", // Added route for ClientDetail
+     path:"clients/detail/:code",
+
             element: <ClientDetail/>
         },
         {
@@ -46,7 +47,7 @@ import Task from "../pages/tasks/Task";
         element:<Employees/>, 
         },
           {
-                       path:"employees/detail",
+                       path:"/employees/detail/:employeeId",
         element:<EmployeeDetail/>, 
         },
         {

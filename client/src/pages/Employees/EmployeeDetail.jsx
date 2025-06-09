@@ -1,5 +1,6 @@
 import React from 'react';
-import './EmployeeDetail.scss'; // We will create this file next
+import { useParams } from 'react-router-dom'; 
+import './EmployeeDetail.scss';
 import { IoSearch } from 'react-icons/io5';
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
@@ -7,55 +8,70 @@ import { IoLocationSharp } from "react-icons/io5";
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
-const EmployeeDetail = () => {
-  // Placeholder data - this would come from props or state
-  // const [value, setValue] = React.useState(87); // Example for dynamic value if needed
-  const employee = {
-    name: "Employee Name",
+const employeesData = [
+  {
     id: "EMP123",
+    name: "Employee Name 1",
     phone: "(+994) XX XXX XX XX",
-    email: "employee.email@example.com",
-    address: "Employee Address, City, Country",
-    avatarUrl: "", // Placeholder for avatar image URL
-    kpiValue: 87, // Example KPI value
+    email: "employee1.email@example.com",
+    address: "Employee Address 1, City, Country",
+    avatarUrl: "",
+    kpiValue: 87,
     features: [
       { name: "Feature name", value: "23.09%" },
       { name: "Feature name", value: "91%" },
       { name: "Feature name", value: "5.98%" },
       { name: "Feature name", value: "0.009" },
     ]
-  };
+  },
+  {
+    id: "EMP124",
+    name: "Employee Name 2",
+    phone: "(+994) YY YYY YY YY",
+    email: "employee2.email@example.com",
+    address: "Employee Address 2, City, Country",
+    avatarUrl: "",
+    kpiValue: 65,
+    features: [
+      { name: "Feature A", value: "12.09%" },
+      { name: "Feature B", value: "81%" },
+      { name: "Feature C", value: "15.98%" },
+      { name: "Feature D", value: "0.020" },
+    ]
+  }
+];
+
+const EmployeeDetail = () => {
+  const { id } = useParams();  
+  
+  const employee = employeesData.find(emp => emp.id === id) || employeesData[0];
 
   return (
     <div className="dashboard-main-box">
-
-    <div className="dashboard-header-client">
+      <div className="dashboard-header-client">
         <h1>Employees <span style={{color:"gray",fontWeight:"lighter"}}> {'>'} {employee.name}</span></h1>
-            <div className="dashboard-header-right-client">
-              <div className="search-containers">
-                <input 
-                  type="text" 
-                  className="search-inputs" 
-                  placeholder="Search..." 
-                  style={{ 
-                    background: 'transparent',
-                    border: 'none',
-                    outline: 'none',
-                    width: '90%',
-                    height: '100%',
-                    fontFamily: 'Satoshi',
-                    fontSize: '16px',
-                    color: '#111A23',
-                    borderRadius:"20px"
-                  }} 
-                />
-               
-    <IoSearch className='sear' />
-    
-              </div>
-      
-            </div>
+        <div className="dashboard-header-right-client">
+          <div className="search-containers">
+            <input 
+              type="text" 
+              className="search-inputs" 
+              placeholder="Search..." 
+              style={{ 
+                background: 'transparent',
+                border: 'none',
+                outline: 'none',
+                width: '90%',
+                height: '100%',
+                fontFamily: 'Satoshi',
+                fontSize: '16px',
+                color: '#111A23',
+                borderRadius:"20px"
+              }} 
+            />
+            <IoSearch className='sear' />
           </div>
+        </div>
+      </div>
       <div className="employee-detail-page">
         <div className="employee-header-section">
           <div className="employee-info-top">
@@ -92,13 +108,13 @@ const EmployeeDetail = () => {
               </div>
             ))}
           </div>
-          {/* Replacing with the provided KPI panel structure */}
+
           <div className="kpi-panel">
             <div className="kpi-header">
               <span>KPI</span>
               <CircularProgressbar
-                value={employee.kpiValue} // Using employee.kpiValue
-                maxValue={100} // Assuming KPI is a percentage 0-100
+                value={employee.kpiValue}
+                maxValue={100}
                 text={`${employee.kpiValue}%`}
                 circleRatio={0.75}
                 styles={buildStyles({
@@ -106,15 +122,11 @@ const EmployeeDetail = () => {
                   strokeLinecap: "butt",
                   trailColor: "rgba(183, 200, 255, 1)",
                   pathColor: "#FF4CE1",
-                  textColor: "#eee", // This might need to be adjusted based on panel bg
+                  textColor: "#eee",
                 })}
               />
-              <div className="kpi-update">Latest Update</div> {/* This was part of your provided JSX */}
+              <div className="kpi-update">Latest Update</div>
             </div>
-            {/* <div className="kpi-chart">
-              <div className="kpi-chart-placeholder"></div>
-            </div> */} {/* Commenting out kpi-chart as it's not in the target image's KPI section */}
-            {/* Removing the kpi-features div as requested */}
           </div>
         </div>
 

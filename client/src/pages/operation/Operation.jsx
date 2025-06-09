@@ -12,12 +12,13 @@ import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import * as XLSX from "xlsx";
 import { saveAs } from "file-saver";
+import { useNavigate } from "react-router";
 const Operation = () => {
   const [filter, setFilter] = useState("All");
   const [sortAsc, setSortAsc] = useState(true);
   const [showAdd, setShowAdd] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
-
+  const navigate = useNavigate();
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
     const [direction, setDirection] = useState('');
@@ -27,7 +28,7 @@ const Operation = () => {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-  // Dummy data for Excel
+
 const excelData = [
   { Name: "John Doe", Age: 28, Department: "Sales" },
   { Name: "Jane Smith", Age: 34, Department: "Marketing" },
@@ -148,7 +149,7 @@ const handleDownloadExcel = () => {
           </div>
 
           <div className="flex-last">
-            {/* 1. Filter Group */}
+     
             <div className="doc-headersa">
               <button
                 className={`gr ${filter === "All" ? "active" : ""}`}
@@ -188,7 +189,7 @@ const handleDownloadExcel = () => {
               </button>
             </div>
 
-            {/* 2. Filter Group */}
+      
             <div className="doc-headersa">
               <button
                 className={`gr ${filter === "All" ? "active" : ""}`}
@@ -215,9 +216,9 @@ const handleDownloadExcel = () => {
           </div>
         </div>
 
-        <div className="table-containerssa">
+        <div className="table-containersss">
           <div className="table-rows table-headsa">
-            <div className="colaa type">Document type</div>
+            <div className="colaas type">Document type</div>
             <div className="colaa type">
               <img src="/image/docimage.png" alt="docimage" height={20} />
             </div>
@@ -234,7 +235,8 @@ const handleDownloadExcel = () => {
 
           <div className="table-bodysa">
             {sortedDocuments.map((doc, idx) => (
-              <div className="table-rowsa" key={idx}>
+              <div className="table-rowsa"             key={idx}
+            onClick={() => navigate(`/operation/detail/${idx + 1}`)}>
                 <div className="colaa type">{doc.type}</div>
                 <div className="colaa type">
                   <img

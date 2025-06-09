@@ -14,17 +14,15 @@ const Sales = () => {
 
   return (
     <div className='dashboard-main-box'>
-      {/* Modal */}
-    {showModal && (
-  <div className="modal-overlay" onClick={() => setShowModal(false)}>
- 
-    
 
-      <ShipmentForm />
-
-  </div>
-)}
-
+      {showModal && (
+        <div className="modal-overlay" onClick={() => setShowModal(false)}>
+          {/* Burada modal içeriği stopPropagation ile sarmalanıyor */}
+          <div className="modal-contents" onClick={e => e.stopPropagation()}>
+            <ShipmentForm onClose={() => setShowModal(false)} />
+          </div>
+        </div>
+      )}
 
       <div className="dashboard-header">
         <h2>Sales List</h2>
@@ -62,7 +60,7 @@ const Sales = () => {
       </div>
 
       {/* Document List */}
-      <div className="doc-wrappers">
+      <div className="doc-wrappersa">
         <div className="jus">
           <div className='doc-d'>
             <p className='doc-pa'>Document List</p>
@@ -79,7 +77,7 @@ const Sales = () => {
           </div>
         </div>
 
-        <div className="table-containerss">
+        <div className="table-containersss">
           <div className="table-rows table-heads">
             <div className="cola type">Document type</div>
             <div className="cola name">Document Name</div>

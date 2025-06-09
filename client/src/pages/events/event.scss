@@ -43,7 +43,7 @@
   background: rgba(255, 255, 255, 0.15);
   border-radius: 12px;
   padding: 10px;
-  width: 350px;
+  width: 330px;
   color: #fff;
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
@@ -298,6 +298,140 @@ box-shadow: 0px 1px 4.8px 0px rgba(0, 0, 0, 0.25);
     background: #f0f0f0;
   }
 }
+@media (max-width: 1024px) {
+  .dashboard-container .content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+  }
 
+  .calendar-div-flex {
+    flex-direction: column;
+  }
 
+  .event-list {
+    width: 100%;
+  }
+}
 
+@media (max-width: 768px) {
+  .dashboard-header-client {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .dashboard-header-right-client {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+
+    .search-containers,
+    .download-excell,
+    .new-event {
+      width: 100%;
+    }
+  }
+
+  .event-list .event-header,
+  .event-list .event-main {
+    grid-template-columns: 1fr;
+    row-gap: 10px;
+    padding: 12px;
+    text-align: left;
+  }
+
+  .event-list .event-main .time-icon {
+    justify-content: flex-start;
+  }
+
+  .event-history .history-header,
+  .event-history .history-row {
+    grid-template-columns: 1fr;
+  }
+}
+/* Tablet (max-width: 1024px) və mobil üçün */
+@media (max-width: 1024px) {
+  .dashboard-container {
+    height: auto;
+    padding: 20px 0;
+
+    .content {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 20px;
+    }
+  }
+
+  .calendar-div-flex {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .event-list {
+    width: 100%;
+  }
+}
+
+/* Mobil (max-width: 768px) üçün */
+@media (max-width: 768px) {
+  .dashboard-header-client {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .dashboard-header-right-client {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 10px;
+
+    .search-containers,
+    .download-excell,
+    .new-event {
+      width: 100%;
+    }
+
+    .search-containers {
+      height: 42px;
+    }
+
+    .search-inputs {
+      width: 100%;
+    }
+  }
+
+  .event-list .event-header,
+  .event-list .event-main {
+    grid-template-columns: 1fr;
+    row-gap: 10px;
+    padding: 12px;
+    text-align: left;
+  }
+
+  .event-list .event-main .time-icon {
+    justify-content: space-between;
+  }
+
+  .event-history .history-header,
+  .event-history .history-row {
+    grid-template-columns: 1fr;
+    row-gap: 6px;
+    padding: 10px;
+  }
+
+  .stats-box {
+    width: 100%;
+  }
+
+  .icon-wrapper {
+    width: 40px;
+    height: 40px;
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
