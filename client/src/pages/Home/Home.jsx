@@ -82,9 +82,9 @@ const Home = () => {
   return (
     <div className="dashboard-main-box">
     
-      <div className="dashboard-header">
-        <h2>Welcome, Namiq!</h2>
-        <div className="dashboard-header-right">
+      <div className="dashboard-headers">
+        <h2 className="resp">Welcome, Namiq!</h2>
+        <div className="dashboard-header-rights">
           <div className="search-container">
             <input
               type="text"
